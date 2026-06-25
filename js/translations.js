@@ -84,8 +84,9 @@
       footer_admin:      'Admin Portal',
 
       /* ── Contact page ── */
+      contact_reach_eyebrow: 'Reach Us',
+      contact_info_h2: 'We\'d Love to Hear<br>From You',
       contact_bc:        'Contact',
-      contact_h1:        'Begin Your Luxury<br><em>Experience With Us</em>',
       contact_p:         'Whether you have a bulk inquiry, export question, or simply wish to connect — our team is ready to assist with the care and elegance you deserve.',
       contact_name:      'Full Name',
       contact_email:     'Email Address',
@@ -330,8 +331,9 @@
       footer_admin:      'Portail Admin',
 
       /* ── Contact page ── */
+      contact_reach_eyebrow: 'Nous Contacter',
+      contact_info_h2: 'Nous Serions Ravis<br>de Vous Entendre',
       contact_bc:        'Contact',
-      contact_h1:        'Commencez Votre Expérience<br><em>Luxueuse Avec Nous</em>',
       contact_p:         'Que vous ayez une demande en gros, une question d\'exportation, ou simplement souhaitez nous contacter — notre équipe est prête à vous aider avec le soin et l\'élégance que vous méritez.',
       contact_name:      'Nom Complet',
       contact_email:     'Adresse E-mail',

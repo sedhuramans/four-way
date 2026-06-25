@@ -102,45 +102,46 @@
 </section>
 
 <!-- Contact Content -->
-<section class="lux-section lux-contact" aria-labelledby="contact-heading">
+<section class="lux-section lux-contact" aria-labelledby="contact-heading" style="padding-top: 5rem; padding-bottom: 5rem;">
   <div class="lux-container">
-    <div class="lux-contact__grid">
+    <div class="lux-contact__grid" style="gap: 4rem; align-items: start;">
 
       <!-- Contact Info -->
       <div class="lux-reveal lux-reveal--left">
-        <span class="lux-eyebrow">Reach Us</span>
-        <h2 class="lux-heading lux-heading--md" id="contact-heading">
+        <span class="lux-eyebrow" data-i18n="contact_reach_eyebrow">Reach Us</span>
+        <h2 class="lux-heading lux-heading--md" id="contact-heading" data-i18n="contact_info_h2">
           We'd Love to Hear<br>From You
         </h2>
         <div class="lux-divider lux-divider--left"></div>
-        <p class="lux-lead" style="margin-bottom:2rem;" data-i18n="contact_p">
+        <p class="lux-lead" style="margin-bottom:3rem;" data-i18n="contact_p">
           Whether you have a bulk inquiry, export question, or simply wish to connect — our team is ready to assist with the care and elegance you deserve.
         </p>
 
-        <div class="lux-contact-info__item">
-          <div class="lux-contact-info__icon" aria-hidden="true">✉</div>
-          <div>
-            <span class="lux-contact-info__label" data-i18n="contact_email_lbl">Email Us</span>
-            <a href="mailto:sales@fourwaysint.com" class="lux-contact-info__value">sales@fourwaysint.com</a>
-          </div>
-        </div>
-        <div class="lux-contact-info__item">
-          <div class="lux-contact-info__icon" aria-hidden="true">✆</div>
-          <div>
-            <span class="lux-contact-info__label" data-i18n="contact_call_lbl">Call Us</span>
+        <div style="display:flex;flex-direction:column;">
+          <div class="lux-contact-info__item">
+            <div class="lux-contact-info__icon" aria-hidden="true">✉</div>
             <div>
-              <a href="tel:+33605705699" class="lux-contact-info__value">+33 6 05 70 56 99</a>
-              <br><small style="color:var(--lux-charcoal-lt);font-size:0.78rem;" data-i18n="contact_hours">Mon – Sat, 9am – 6pm</small>
+              <span class="lux-contact-info__label" data-i18n="contact_email_lbl">Email Us</span>
+              <a href="mailto:sales@fourwaysint.com" class="lux-contact-info__value" style="display:block;text-decoration:none;color:var(--lux-charcoal);">sales@fourwaysint.com</a>
             </div>
           </div>
-        </div>
-        <div class="lux-contact-info__item">
-          <div class="lux-contact-info__icon" aria-hidden="true">⌖</div>
-          <div>
-            <span class="lux-contact-info__label" data-i18n="contact_address_lbl">Our Address</span>
-            <address class="lux-contact-info__value" style="font-style:normal;" data-i18n="contact_address">
-              33 Avenue des Chartreux<br>13004 Marseille, France
-            </address>
+
+          <div class="lux-contact-info__item">
+            <div class="lux-contact-info__icon" aria-hidden="true">✆</div>
+            <div>
+              <span class="lux-contact-info__label" data-i18n="contact_call_lbl">Call Us</span>
+              <a href="tel:+33605705699" class="lux-contact-info__value" style="display:block;text-decoration:none;color:var(--lux-charcoal);">+33 6 05 70 56 99</a>
+            </div>
+          </div>
+
+          <div class="lux-contact-info__item" style="border-bottom:var(--border-thin);">
+            <div class="lux-contact-info__icon" aria-hidden="true">⌖</div>
+            <div>
+              <span class="lux-contact-info__label" data-i18n="contact_address_lbl">Our Address</span>
+              <address class="lux-contact-info__value" style="font-style:normal;display:block;" data-i18n="contact_address">
+                33 Avenue des Chartreux<br>13004 Marseille, France
+              </address>
+            </div>
           </div>
         </div>
 
@@ -157,30 +158,21 @@
 
       <!-- Contact Form -->
       <div class="lux-reveal lux-reveal--right">
-        <form id="lux-contact-form" novalidate onsubmit="handleLuxContactForm(event)" aria-label="Contact form">
-          <div class="lux-form__group">
+        <form id="lux-contact-form" novalidate onsubmit="handleLuxContactForm(event)" aria-label="Contact form" style="background:var(--lux-white);border:var(--border-thin);padding:2.5rem;border-radius:4px;">
+          <div class="lux-form__group" style="margin-bottom:1.5rem;">
             <input type="text" id="name" class="lux-form__input" placeholder=" " required autocomplete="name">
             <label for="name" class="lux-form__label" data-i18n="contact_name">Full Name</label>
           </div>
-          <div class="lux-form__group">
+          <div class="lux-form__group" style="margin-bottom:1.5rem;">
             <input type="email" id="email" class="lux-form__input" placeholder=" " required autocomplete="email">
             <label for="email" class="lux-form__label" data-i18n="contact_email">Email Address</label>
           </div>
-          <div class="lux-form__group">
-            <select id="interest" class="lux-form__select lux-form__input" style="padding-top:1rem;">
-              <option value="general"  data-i18n="contact_opt0">General Inquiry</option>
-              <option value="cocopeat" data-i18n="contact_opt1">Cocopeat Products</option>
-              <option value="growbags" data-i18n="contact_opt2">Grow Bags</option>
-              <option value="bamboo"   data-i18n="contact_opt3">Bamboo Products</option>
-              <option value="quote"    data-i18n="contact_opt4">Request Bulk Quote</option>
-            </select>
-            <label for="interest" class="lux-form__label" style="top:0.42rem;font-size:0.6rem;color:var(--lux-champagne-dk);" data-i18n="contact_interest">Interested In</label>
-          </div>
-          <div class="lux-form__group">
+
+          <div class="lux-form__group" style="margin-bottom:2rem;">
             <textarea id="message" class="lux-form__textarea" placeholder=" " required></textarea>
             <label for="message" class="lux-form__label" data-i18n="contact_msg">Your Message</label>
           </div>
-          <button type="submit" class="lux-btn lux-btn--primary" style="width:100%;justify-content:center;" data-i18n="contact_send">
+          <button type="submit" class="lux-btn lux-btn--primary" style="width:100%;justify-content:center;padding:1rem;" data-i18n="contact_send">
             <span>Send Message</span>
           </button>
         </form>
@@ -261,21 +253,18 @@
     var params = new URLSearchParams(window.location.search);
     var subject = params.get('subject');
     if (subject) {
-      var sel = document.getElementById('interest');
       var msg = document.getElementById('message');
-      if (sel) sel.value = 'quote';
       if (msg) msg.value = 'I am interested in: ' + subject + '\n\n';
     }
   });
 
   function handleLuxContactForm(event) {
     event.preventDefault();
-    var name     = document.getElementById('name').value;
-    var email    = document.getElementById('email').value;
-    var interest = document.getElementById('interest').value;
-    var message  = document.getElementById('message').value;
-    var subject  = 'Inquiry about ' + interest + ' — ' + name;
-    var body     = 'Name: ' + name + '\nEmail: ' + email + '\nInterest: ' + interest + '\n\nMessage:\n' + message;
+    var name    = document.getElementById('name').value;
+    var email   = document.getElementById('email').value;
+    var message = document.getElementById('message').value;
+    var subject = 'Inquiry from ' + name;
+    var body    = 'Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message;
     window.location.href = 'mailto:sales@fourwaysint.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
     if (typeof i18n !== 'undefined') alert(i18n.t('contact_alert'));
     else alert('Thank you! Your message is being sent.');

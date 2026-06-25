@@ -872,7 +872,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--lux-champagne-dk);
+  color: var(--lux-charcoal);
   margin-bottom: 0.3rem;
 }
 .lux-contact-info__value {
