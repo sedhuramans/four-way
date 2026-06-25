@@ -4,18 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="💳 Secure Payment Gateway for Nature Care Impex Orders | UPI, Credit Card, Debit Card & Digital Wallet Payments. 100% Safe & Encrypted Checkout Process!">
-    <meta name="keywords" content="nature care impex payment, secure checkout, UPI payment, online payment, cocopeat payment, bamboo products payment, safe payment gateway">
-    <link rel="canonical" href="https://nature-care-impex-1.onrender.com/payment.html">
+    <meta name="description" content="💳 Secure Payment Gateway for Fourways International Trading Orders | UPI, Credit Card, Debit Card & Digital Wallet Payments. 100% Safe & Encrypted Checkout Process!">
+    <meta name="keywords" content="Fourways International Trading payment, secure checkout, UPI payment, online payment, cocopeat payment, bamboo products payment, safe payment gateway">
+    <link rel="canonical" href="https://fourways-international-trading-1.onrender.com/payment.html">
     
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="💳 Secure Payment Gateway | Nature Care Impex Checkout">
-    <meta property="og:description" content="Complete your Nature Care Impex order with our secure payment gateway. UPI, cards & digital wallets accepted. 100% safe checkout!">
+    <meta property="og:title" content="💳 Secure Payment Gateway | Fourways International Trading Checkout">
+    <meta property="og:description" content="Complete your Fourways International Trading order with our secure payment gateway. UPI, cards & digital wallets accepted. 100% safe checkout!">
     <meta property="og:image" content="https://res.cloudinary.com/dy5kyfcw4/image/upload/v1767190433/photo_2025-12-31_22-10-18_k0jfc7.jpg">
-    <meta property="og:url" content="https://nature-care-impex-1.onrender.com/payment.html">
+    <meta property="og:url" content="https://fourways-international-trading-1.onrender.com/payment.html">
     <meta property="og:type" content="website">
     
-    <title>💳 Secure Payment Gateway | Nature Care Impex Checkout</title>
+    <title>💳 Secure Payment Gateway | Fourways International Trading Checkout</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -443,11 +443,11 @@
         <div class="container nav-container">
             <a href="index.html" class="logo">
                 <img src="assets/logo.jpg"
-                    alt="Nature Care Impex">
-                <span class="logo-text">Nature Care Impex</span>
+                    alt="Fourways International Trading">
+                <span class="logo-text">Fourways International Trading</span>
             </a>
             
-            <div class="mobile-brand-name">Nature Care Impex</div>
+            <div class="mobile-brand-name">Fourways International Trading</div>
 
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html" class="nav-link" onclick="closeNav()">Home</a></li>
@@ -666,7 +666,7 @@
 
                     <!-- Step 2: Inline confirmation panel (shown after clicking) -->
                     <div id="confirm-step-2" style="display:none; margin-top:20px; border:2px solid #28a745; border-radius:12px; padding:20px; background:#f0fdf4;">
-                        <h4 style="margin:0 0 12px; color:#1a4a30; font-size:1.05rem;">✅ Confirm Your Order</h4>
+                        <h4 style="margin:0 0 12px; color:#0A2A6B; font-size:1.05rem;">✅ Confirm Your Order</h4>
                         <div id="confirm-order-summary" style="font-size:0.9rem; line-height:1.9; margin-bottom:16px; color:#333;"></div>
                         <!-- Screenshot status in confirm panel -->
                         <div id="confirm-screenshot-status" style="margin-bottom:14px; padding:10px 14px; border-radius:8px; font-size:0.88rem; font-weight:600;"></div>
@@ -703,7 +703,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>Nature Care Impex</h3>
+                    <h3>Fourways International Trading</h3>
                     <p>Leading exporter of coir and natural products.</p>
                 </div>
 
@@ -721,17 +721,16 @@
                 <div class="footer-column">
                     <h3>Contact Info</h3>
                     <ul class="footer-links">
-                        <li>📧 naturecareimpex@gmail.com</li>
-                        <li>📞 9345540373</li>
-                        <li>📍 Shop 11A bajar street, kottakuppam, vanur taluk, villupuram district, tamilnadu, 605104
-                        </li>
-                        <li>GSTIN: 33AAYFN7568G</li>
+                        <li>📧 sales@fourwaysint.com</li>
+                        <li>📞 +33 6 05 70 56 99</li>
+                        <li data-i18n="contact_address">📍 33 Avenue des Chartreux, 13004 Marseille, 4th Arrondissement</li>
+
                     </ul>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2024 Nature Care Impex. All rights reserved.</p>
+                <p>&copy; 2024 Fourways International Trading. All rights reserved.</p>
                 <p style="margin-top: 10px; font-size: 0.85rem; opacity: 0.7;">
                     <a href="owner.html" style="color: inherit; text-decoration: none; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">Admin Portal</a>
                 </p>
@@ -865,7 +864,7 @@
             document.querySelector('.payment-wrapper').innerHTML = `
                 <div style="text-align:center; padding:40px 20px;">
                     <div style="font-size:4rem; margin-bottom:16px;">🎉</div>
-                    <h2 style="color:#1A4A30; font-size:1.8rem; margin-bottom:12px;">Order Confirmed!</h2>
+                    <h2 style="color:#0A2A6B; font-size:1.8rem; margin-bottom:12px;">Order Confirmed!</h2>
                     <div style="background:#f0fdf4; border:2px solid #28a745; border-radius:12px; padding:20px; margin:20px 0; text-align:left; max-width:400px; margin-inline:auto;">
                         <p><strong>Order ID:</strong> ${finalOrder.orderId}</p>
                         <p><strong>Product:</strong> ${finalOrder.product?.name}</p>
@@ -949,7 +948,7 @@
                     // Try alternative QR generation
                     const orderData = JSON.parse(sessionStorage.getItem('orderForPayment'));
                     if (orderData) {
-                        const upiData = `upi://pay?pa=naturecareimpex@paytm&pn=Nature Care Impex&am=${orderData.totalAmount}&cu=INR&tn=Order-${orderData.orderId}`;
+                        const upiData = `upi://pay?pa=fourwaysinternational@paytm&pn=Fourways International Trading&am=${orderData.totalAmount}&cu=INR&tn=Order-${orderData.orderId}`;
                         qrElement.src = `https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=${encodeURIComponent(upiData)}&choe=UTF-8`;
                     }
                 };
@@ -1068,10 +1067,10 @@ ${validationResults.map(v => `${v.isValid ? '✅' : '❌'} Format ${v.format}: $
 ${upiFormats[0]}
 
 🆔 Alternative UPI IDs:
-• naturecareimpex@paytm (Paytm)
-• naturecareimpex@ybl (PhonePe)  
-• naturecareimpex@okaxis (Google Pay)
-• naturecareimpex@upi (Generic)
+• fourwaysinternational@paytm (Paytm)
+• fourwaysinternational@ybl (PhonePe)  
+• fourwaysinternational@okaxis (Google Pay)
+• fourwaysinternational@upi (Generic)
 
 Check console for detailed validation results.`;
             
@@ -1140,7 +1139,7 @@ UPI String: ${primaryUpi}`);
             const amount = orderData.totalAmount;
             const orderId = orderData.orderId;
             const transactionNote = `Order-${orderId}`;
-            const merchantName = 'Nature Care Impex';
+            const merchantName = 'Fourways International Trading';
             
             // Test URLs for each payment app
             const testUrls = {

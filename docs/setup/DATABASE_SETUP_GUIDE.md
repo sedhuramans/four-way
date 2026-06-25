@@ -26,7 +26,7 @@ Open `test-database-connection.html` in your browser to verify everything is wor
    - Open terminal/command prompt
    - Navigate to your project folder
    - Run: `npm start`
-   - You should see: "🚀 Nature Care Impex server running at: http://localhost:3000"
+   - You should see: "🚀 Fourways International Trading server running at: http://localhost:3000"
 
 2. **Test database connection:**
    - Open `test-database-connection.html` in your browser

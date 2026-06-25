@@ -1,10 +1,10 @@
 # 🔧 CORS Environment Detection Fix
 
 ## Problem Identified
-The production website (`https://nature-care-impex-cliy.onrender.com`) was trying to connect to `http://localhost:3000/api`, causing CORS errors:
+The production website (`https://fourways-international-trading-cliy.onrender.com`) was trying to connect to `http://localhost:3000/api`, causing CORS errors:
 
 ```
-Access to fetch at 'http://localhost:3000/api/health' from origin 'https://nature-care-impex-cliy.onrender.com' has been blocked by CORS policy
+Access to fetch at 'http://localhost:3000/api/health' from origin 'https://fourways-international-trading-cliy.onrender.com' has been blocked by CORS policy
 ```
 
 ## Root Cause
@@ -53,7 +53,7 @@ console.log('🔗 Using server URL:', window.apiService.baseURL);
 - ✅ No CORS errors
 
 ### Production (Render):
-- ✅ Uses: `https://nature-care-impex-cliy.onrender.com/api`
+- ✅ Uses: `https://fourways-international-trading-cliy.onrender.com/api`
 - ✅ Connects to production server
 - ✅ No CORS errors
 

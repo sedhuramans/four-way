@@ -24,7 +24,7 @@
 
 ### 3. 📱 Mobile Behavior
 - **Desktop**: Logo on left, nav links in center, hamburger hidden
-- **Mobile**: Logo on left, "Nature Care Impex" in center, hamburger on right
+- **Mobile**: Logo on left, "Fourways International Trading" in center, hamburger on right
 
 ## To Update Remaining Files:
 
@@ -33,7 +33,7 @@ Add this HTML snippet after the logo in each navbar:
 ```html
 <!-- Website name for mobile only -->
 <div class="mobile-brand-name">
-    <span>Nature Care Impex</span>
+    <span>Fourways International Trading</span>
 </div>
 ```
 
@@ -64,6 +64,6 @@ Add this HTML snippet after the logo in each navbar:
 
 ## Result:
 On mobile devices, users will see:
-**[Logo] Nature Care Impex [☰]**
+**[Logo] Fourways International Trading [☰]**
 
 Perfect for brand recognition on mobile! 🎉

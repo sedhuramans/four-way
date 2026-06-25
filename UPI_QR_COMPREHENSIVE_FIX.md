@@ -18,7 +18,7 @@ const upiFormats = [
     // Standard NPCI format
     `upi://pay?pa=${primaryUpiId}&pn=${encodeURIComponent(merchantName)}&am=${amount}&cu=${currency}&tn=${encodeURIComponent(transactionNote)}`,
     // Alternative format without encoding merchant name
-    `upi://pay?pa=${primaryUpiId}&pn=Nature%20Care%20Impex&am=${amount}&cu=${currency}&tn=${encodeURIComponent(transactionNote)}`,
+    `upi://pay?pa=${primaryUpiId}&pn=Fourways%20International%20Trading&am=${amount}&cu=${currency}&tn=${encodeURIComponent(transactionNote)}`,
     // Simplified format
     `upi://pay?pa=${primaryUpiId}&am=${amount}&tn=${encodeURIComponent(transactionNote)}`,
     // Format with merchant code
@@ -31,10 +31,10 @@ const upiFormats = [
 ### 2. Multiple UPI ID Fallbacks
 ```javascript
 const fallbackUpiIds = [
-    'naturecareimpex@paytm',    // Primary Paytm
-    'naturecareimpex@ybl',      // PhonePe fallback
-    'naturecareimpex@okaxis',   // Google Pay fallback
-    'naturecareimpex@upi'       // Generic UPI fallback
+    'fourwaysinternational@paytm',    // Primary Paytm
+    'fourwaysinternational@ybl',      // PhonePe fallback
+    'fourwaysinternational@okaxis',   // Google Pay fallback
+    'fourwaysinternational@upi'       // Generic UPI fallback
 ];
 ```
 

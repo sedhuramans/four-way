@@ -1,6 +1,6 @@
 # HTML Files Directory
 
-This directory contains all HTML files for the Nature Care Impex project.
+This directory contains all HTML files for the Fourways International Trading project.
 
 ## Structure:
 - Main pages (index.html, about.html, etc.)

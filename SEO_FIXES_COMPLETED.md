@@ -1,4 +1,4 @@
-# SEO Issues Fixed - Nature Care Impex Website
+# SEO Issues Fixed - Fourways International Trading Website
 
 ## ✅ Issues Resolved
 

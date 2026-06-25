@@ -2,7 +2,7 @@
 
 ## ✅ What's Been Fixed
 
-Your Nature Care Impex website now has **FULL E-COMMERCE FUNCTIONALITY**:
+Your Fourways International Trading website now has **FULL E-COMMERCE FUNCTIONALITY**:
 
 ### Before:
 - ❌ Products page had "Contact Us" buttons

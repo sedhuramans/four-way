@@ -32,7 +32,7 @@ Your GitHub repository now contains:
 Fill in these settings:
 
 **Basic Settings:**
-- **Name**: `nature-care-impex`
+- **Name**: `fourways-international-trading`
 - **Region**: Oregon (US West) or Singapore (closest to India)
 - **Branch**: `main`
 - **Root Directory**: Leave EMPTY (don't put "server")
@@ -72,21 +72,21 @@ Once deployed, your site will be at:
 
 **Main Website:**
 ```
-https://nature-care-impex.onrender.com
+https://fourways-international-trading.onrender.com
 ```
 
 **Owner Portal:**
 ```
-https://nature-care-impex.onrender.com/owner
+https://fourways-international-trading.onrender.com/owner
 ```
 - Username: `admin`
 - Password: `2025`
 
 **API Endpoints:**
 ```
-https://nature-care-impex.onrender.com/api/health
-https://nature-care-impex.onrender.com/api/products
-https://nature-care-impex.onrender.com/api/orders
+https://fourways-international-trading.onrender.com/api/health
+https://fourways-international-trading.onrender.com/api/products
+https://fourways-international-trading.onrender.com/api/orders
 ```
 
 ---
@@ -209,7 +209,7 @@ After deployment, verify:
 
 **Render Dashboard**: https://dashboard.render.com
 
-**Live Site** (after deployment): https://nature-care-impex.onrender.com
+**Live Site** (after deployment): https://fourways-international-trading.onrender.com
 
 ---
 

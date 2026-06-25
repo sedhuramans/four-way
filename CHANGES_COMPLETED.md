@@ -125,7 +125,7 @@ After 2-3 minutes, verify:
 ✅ **Complete** - All pages working
 ✅ **Live** - Accessible worldwide
 
-**Congratulations! Your Nature Care Impex website is live!** 🌱✨
+**Congratulations! Your Fourways International Trading website is live!** 🌱✨
 
 ---
 

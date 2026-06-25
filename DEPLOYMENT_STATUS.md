@@ -1,4 +1,4 @@
-# 🚀 Deployment Status - Nature Care Impex
+# 🚀 Deployment Status - Fourways International Trading
 
 ## ✅ COMPLETED ACTIONS
 
@@ -28,15 +28,15 @@
 
 ### Check Render Dashboard
 1. Go to: https://dashboard.render.com
-2. Find your service: `nature-care-impex`
+2. Find your service: `fourways-international-trading`
 3. Check deployment status (should show "Deploying" or "Live")
 
 ### Test Production URLs (After Deployment)
 ```
-✅ https://nature-care-impex-1.onrender.com/robots.txt
-✅ https://nature-care-impex-1.onrender.com/favicon.ico
-✅ https://nature-care-impex-1.onrender.com/.well-known/apple-app-site-association
-✅ https://nature-care-impex-1.onrender.com/sitemap.xml
+✅ https://fourways-international-trading-1.onrender.com/robots.txt
+✅ https://fourways-international-trading-1.onrender.com/favicon.ico
+✅ https://fourways-international-trading-1.onrender.com/.well-known/apple-app-site-association
+✅ https://fourways-international-trading-1.onrender.com/sitemap.xml
 ```
 
 ## ⏱️ EXPECTED TIMELINE

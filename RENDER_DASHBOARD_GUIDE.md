@@ -8,11 +8,11 @@
 
 ### Step 2: Find Your Service
 1. You'll see the **Dashboard** with all your services
-2. Look for: **"nature-care-impex"** (your service name)
+2. Look for: **"fourways-international-trading"** (your service name)
 3. It will show status: **"Suspended"** or **"Sleeping"**
 
 ### Step 3: Click on Your Service
-1. **Click on the service name**: "nature-care-impex"
+1. **Click on the service name**: "fourways-international-trading"
 2. This opens the **service details page**
 
 ### Step 4: Look for Resume Button

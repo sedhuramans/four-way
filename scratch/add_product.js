@@ -4,7 +4,7 @@ const path = require('path');
 
 // MongoDB Connection URIs
 const MONGODB_LOCAL_URI = 'mongodb://localhost:27017/nature_care_impex';
-const MONGODB_ATLAS_URI = 'mongodb+srv://p59050352_db_user:keerthivasan@cluster0.boime9a.mongodb.net/nature_care_impex?retryWrites=true&w=majority&appName=Cluster0';
+const MONGODB_ATLAS_URI = 'mongodb+srv://pavithra2282009_db_user:Pavi9876543210@cluster0.awahsjz.mongodb.net/nature_care_impex?retryWrites=true&w=majority&appName=Cluster0';
 
 // Define Product Schema (matching the app's schema)
 const ProductSchema = new mongoose.Schema({

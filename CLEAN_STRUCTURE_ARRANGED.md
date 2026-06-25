@@ -62,7 +62,7 @@ I've removed the duplicate files and folders. Your structure is now clean and pr
 ## ✅ **Perfect Structure for GitHub:**
 
 ```
-nature-care-impex/
+fourways-international-trading/
 ├── 📁 Main Website Files (Root)
 │   ├── index.html
 │   ├── products.html

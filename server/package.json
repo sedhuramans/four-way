@@ -1,7 +1,7 @@
 {
-  "name": "nature-care-impex",
+  "name": "fourways-international-trading",
   "version": "1.0.0",
-  "description": "Nature Care Impex - Sustainable Solutions Website with Owner Portal",
+  "description": "Fourways International Trading - Sustainable Solutions Website with Owner Portal",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -23,21 +23,22 @@
     "ecommerce",
     "owner-portal"
   ],
-  "author": "Nature Care Impex",
+  "author": "Fourways International Trading",
   "license": "MIT",
   "dependencies": {
+    "cloudinary": "^2.10.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
     "express": "^4.22.1",
     "mongoose": "^8.0.0",
-    "multer": "^1.4.5-lts.1",
-    "cors": "^2.8.5",
-    "dotenv": "^16.3.1"
+    "multer": "^1.4.5-lts.1"
   },
   "engines": {
     "node": ">=14.0.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/nature-care-impex"
+    "url": "https://github.com/yourusername/fourways-international-trading"
   },
-  "homepage": "https://github.com/yourusername/nature-care-impex"
+  "homepage": "https://github.com/yourusername/fourways-international-trading"
 }

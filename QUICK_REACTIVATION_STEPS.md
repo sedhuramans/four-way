@@ -6,7 +6,7 @@
 
 1. **Go to**: https://dashboard.render.com
 2. **Login** to your account
-3. **Find**: `nature-care-impex` service
+3. **Find**: `fourways-international-trading` service
 4. **Click**: "Resume" or "Restart" button
 5. **Wait**: 2-3 minutes for startup
 
@@ -18,9 +18,9 @@
 
 ### Test After Reactivation:
 ```
-https://nature-care-impex-1.onrender.com
-https://nature-care-impex-1.onrender.com/robots.txt
-https://nature-care-impex-1.onrender.com/favicon.ico
+https://fourways-international-trading-1.onrender.com
+https://fourways-international-trading-1.onrender.com/robots.txt
+https://fourways-international-trading-1.onrender.com/favicon.ico
 ```
 
 **The service suspension is why your updates weren't appearing - once reactivated, everything will work!**

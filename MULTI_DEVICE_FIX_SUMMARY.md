@@ -125,17 +125,17 @@ if (!orderId && !email) {
 ## 🧪 Testing Multi-Device Access
 
 ### Test 1: Place Order on Device A
-1. Open on Phone: https://nature-care-impex-1.onrender.com
+1. Open on Phone: https://fourways-international-trading-1.onrender.com
 2. Go to Products → Buy Now
 3. Complete order and note Order ID
 
 ### Test 2: Track on Device B
-1. Open on Laptop: https://nature-care-impex-1.onrender.com/track-order.html
+1. Open on Laptop: https://fourways-international-trading-1.onrender.com/track-order.html
 2. Enter Order ID from Device A
 3. ✅ Should find order (from database)
 
 ### Test 3: View in Owner Portal on Device C
-1. Open on Tablet: https://nature-care-impex-1.onrender.com/owner.html
+1. Open on Tablet: https://fourways-international-trading-1.onrender.com/owner.html
 2. Login: admin/2025
 3. ✅ Should see order (from database)
 
@@ -249,7 +249,7 @@ System is working correctly if:
 ### Step 1: Check Database Connection
 1. Open browser console (F12)
 2. Look for: `✅ Server connected successfully`
-3. Should see: `🔗 Server URL: https://nature-care-impex-1.onrender.com/api`
+3. Should see: `🔗 Server URL: https://fourways-international-trading-1.onrender.com/api`
 
 ### Step 2: Test Track Order
 1. Go to track-order.html
@@ -303,7 +303,7 @@ System is working correctly if:
 
 ## 🎉 Summary
 
-Your Nature Care Impex platform is now a **professional, multi-device, real-time e-commerce system** with:
+Your Fourways International Trading platform is now a **professional, multi-device, real-time e-commerce system** with:
 
 - 🌐 Cloud database (MongoDB Atlas)
 - 📱 Access from any device

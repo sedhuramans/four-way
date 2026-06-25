@@ -248,7 +248,7 @@ Render will auto-deploy in 2-3 minutes.
 ### Test API Endpoint:
 ```bash
 # Test delete (replace with real order ID)
-curl -X DELETE https://nature-care-impex-1.onrender.com/api/orders/NCI-20250116-XXXX
+curl -X DELETE https://fourways-international-trading-1.onrender.com/api/orders/NCI-20250116-XXXX
 ```
 
 ### Check Database:

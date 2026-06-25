@@ -20,7 +20,7 @@ if (mongoose.connection.readyState !== 1) {
 
 **Go to Render Dashboard NOW:**
 1. **URL**: https://dashboard.render.com
-2. **Find**: Your service (nature-care-impex-1-7yri)
+2. **Find**: Your service (fourways-international-trading-1-7yri)
 3. **Click**: Service name
 4. **Go to**: "Environment" tab
 
@@ -53,13 +53,13 @@ if (mongoose.connection.readyState !== 1) {
 
 1. **Health Check**: 
    ```
-   https://nature-care-impex-1-7yri.onrender.com/api/health
+   https://fourways-international-trading-1-7yri.onrender.com/api/health
    ```
    Should return: `{"success": true}`
 
 2. **Products API**:
    ```
-   https://nature-care-impex-1-7yri.onrender.com/api/products
+   https://fourways-international-trading-1-7yri.onrender.com/api/products
    ```
    Should return: `{"success": true, "data": [...]}`
 

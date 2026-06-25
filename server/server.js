@@ -4,12 +4,83 @@ const path = require('path');
 require('dotenv').config();
 
 const connectDB = require('./config/database');
+const Product = require('./models/Product');
+
+// Seed default products into MongoDB if the collection is empty
+async function seedDefaultProducts() {
+    try {
+        const mongoose = require('mongoose');
+        if (mongoose.connection.readyState !== 1) return;
+
+        const count = await Product.countDocuments();
+        if (count > 0) {
+            console.log(`✅ Database already has ${count} products — skipping seed`);
+            return;
+        }
+
+        const defaults = [
+            {
+                id: 1,
+                name: "Cocopeat 5kg Block",
+                category: "cocopeat",
+                image: "https://res.cloudinary.com/dy5kyfcw4/image/upload/v1767190898/photo_2025-12-31_22-18-07_c2hs4m.jpg",
+                description: "Premium washed cocopeat blocks ideal for potting mixes and hydroponics. High water retention and porosity.",
+                sizes: ["S", "M", "L", "XL", "XXL"],
+                price: 250, cost: 150, stock: 100, isActive: true
+            },
+            {
+                id: 2,
+                name: "Coco Grow Bags",
+                category: "eco-care",
+                image: "https://cdn.moglix.com/p/B5wXshH1wq7TS-xxlarge.jpg",
+                description: "Ready-to-use grow bags for greenhouse cultivation. UV treated for durability and optimal root growth.",
+                sizes: ["S", "M", "L", "XL", "XXL"],
+                price: 90, cost: 60, stock: 200, isActive: true
+            },
+            {
+                id: 3,
+                name: "Coco Bricks (650g)",
+                category: "cocopeat",
+                image: "https://images.unsplash.com/photo-1591857177580-dc82b9e4e119?auto=format&fit=crop&w=800&q=80",
+                description: "Compact 650g briquettes, perfect for home gardening and smaller applications. Expands to 9 liters.",
+                sizes: ["S", "M", "L", "XL", "XXL"],
+                price: 180, cost: 120, stock: 150, isActive: true
+            },
+            {
+                id: 5,
+                name: "Bamboo Period Pads",
+                category: "bamboo",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbYHHF-lKgdGS9ftR4AwALD27xwGSO9hsldw&s",
+                description: "Comfortable, absorbent, and eco-friendly bamboo period pads. Washable and reusable for a sustainable cycle.",
+                sizes: ["S", "M", "L", "XL", "XXL"],
+                price: 120, cost: 80, stock: 80, isActive: true
+            },
+            {
+                id: 6,
+                name: "12 Coco Bricks 400g",
+                category: "cocopeat",
+                image: "https://res.cloudinary.com/dy5kyfcw4/image/upload/v1767190712/photo_2025-12-31_22-14-34_zu8ayl.jpg",
+                description: "High-quality 400g coco peat bricks, perfect for home gardening and seed starting. Compact and easy to use.",
+                sizes: ["S", "M", "L", "XL", "XXL"],
+                price: 200, cost: 140, stock: 120, isActive: true
+            }
+        ];
+
+        await Product.insertMany(defaults);
+        console.log(`🌱 Seeded ${defaults.length} default products into MongoDB`);
+    } catch (err) {
+        console.error('⚠️ Failed to seed default products:', err.message);
+    }
+}
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Connect to database
-connectDB();
+connectDB().then(() => {
+    // Auto-seed products if the DB is connected but empty
+    seedDefaultProducts();
+});
 
 // Middleware
 app.use(cors());
@@ -24,18 +95,22 @@ if (process.env.NODE_ENV === 'development') {
     });
 }
 
+// Serve uploaded product images
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 // Serve static files from the parent directory (where HTML files are)
 app.use(express.static(path.join(__dirname, '..')));
 
 // API Routes
 app.use('/api/orders', require('./routes/orders'));
 app.use('/api/products', require('./routes/products'));
+app.use('/api/upload', require('./routes/upload'));
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
     res.json({
         success: true,
-        message: 'Nature Care Impex API is running',
+        message: 'Fourways International Trading API is running',
         timestamp: new Date().toISOString(),
         environment: process.env.NODE_ENV || 'development'
     });
@@ -117,7 +192,7 @@ app.use((err, req, res, next) => {
 
 // Start server
 app.listen(PORT, () => {
-    console.log('🚀 Nature Care Impex Server Started');
+    console.log('🚀 Fourways International Trading Server Started');
     console.log(`📍 Server running on: http://localhost:${PORT}`);
     console.log(`🌐 Environment: ${process.env.NODE_ENV || 'development'}`);
     console.log('📋 Available routes:');

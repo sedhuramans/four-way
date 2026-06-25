@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Owner Portal - Nature Care Impex</title>
+    <title>Owner Portal - Fourways International Trading</title>
     <link rel="stylesheet" href="css/owner-portal.css">
 </head>
 <body>
@@ -11,8 +11,8 @@
     <div id="login-screen" class="login-container">
         <div class="login-box">
             <div class="logo-section">
-                <img src="assets/logo.jpg" alt="Nature Care Impex" class="portal-logo">
-                <div class="portal-logo-text">Nature Care Impex</div>
+                <img src="assets/logo.jpg" alt="Fourways International Trading" class="portal-logo">
+                <div class="portal-logo-text">Fourways International Trading</div>
                 <h2>Owner Portal</h2>
                 <p>Secure access for business management</p>
             </div>
@@ -38,7 +38,7 @@
         <!-- Header -->
         <header class="dashboard-header">
             <div class="header-content">
-                <h1>Nature Care Impex - Owner Dashboard</h1>
+                <h1>Fourways International Trading - Owner Dashboard</h1>
                 <div class="header-actions">
                     <span class="welcome-text">Welcome, Owner</span>
                     <button id="logout-btn" class="btn-logout">Logout</button>
@@ -307,6 +307,9 @@
                     <div class="image-help-text" style="font-size: 0.9rem; color: #666; margin-bottom: 10px;">
                         💡 <strong>Primary Image:</strong>
                     </div>
+                    <div style="background:#e7f3ff;border:1px solid#2196F3;border-radius:6px;padding:10px 14px;margin-bottom:14px;font-size:0.88rem;color:#0d47a1;">
+                        ℹ️ <strong>Upload images</strong> from your device or paste URLs. Images are stored in the cloud.
+                    </div>
                     <div class="image-input-options" style="margin-bottom: 15px;">
                         <div class="input-option">
                             <label for="product-image-url">Image URL 1:</label>
@@ -315,7 +318,8 @@
                         <div class="input-option-divider">OR</div>
                         <div class="input-option">
                             <label for="product-image-file">Upload Image 1:</label>
-                            <input type="file" id="product-image-file" accept="image/*">
+                            <input type="file" id="product-image-file" accept="image/*,.heic,.heif,.avif">
+                            <small style="color:#666;">All formats supported (jpg, png, webp, heic�) up to 20MB</small>
                         </div>
                         <div class="image-preview" id="product-image-preview" style="display: none;">
                             <img id="preview-img" src="" alt="Preview 1" style="max-width: 100px; max-height: 100px; border-radius: 8px; margin-top: 10px;">
@@ -333,7 +337,8 @@
                         <div class="input-option-divider">OR</div>
                         <div class="input-option">
                             <label for="product-image-file-2">Upload Image 2:</label>
-                            <input type="file" id="product-image-file-2" accept="image/*">
+                            <input type="file" id="product-image-file-2" accept="image/*,.heic,.heif,.avif">
+                            <small style="color:#666;">All formats supported (jpg, png, webp, heic�) up to 20MB</small>
                         </div>
                         <div class="image-preview" id="product-image-preview-2" style="display: none;">
                             <img id="preview-img-2" src="" alt="Preview 2" style="max-width: 100px; max-height: 100px; border-radius: 8px; margin-top: 10px;">
@@ -351,7 +356,8 @@
                         <div class="input-option-divider">OR</div>
                         <div class="input-option">
                             <label for="product-image-file-3">Upload Image 3:</label>
-                            <input type="file" id="product-image-file-3" accept="image/*">
+                            <input type="file" id="product-image-file-3" accept="image/*,.heic,.heif,.avif">
+                            <small style="color:#666;">All formats supported (jpg, png, webp, heic�) up to 20MB</small>
                         </div>
                         <div class="image-preview" id="product-image-preview-3" style="display: none;">
                             <img id="preview-img-3" src="" alt="Preview 3" style="max-width: 100px; max-height: 100px; border-radius: 8px; margin-top: 10px;">
@@ -370,118 +376,16 @@
     <script src="js/api-service.js"></script>
     <script src="js/owner-portal.js"></script>
     
-    <!-- Emergency Login Fix -->
+    <!-- Port redirect safety check -->
     <script>
-        // Emergency login fix - override any conflicts
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('🔧 Emergency login fix loaded');
-            
-            // Check if we're on the wrong port and redirect
-            if (window.location.port === '5501' || window.location.hostname === '127.0.0.1') {
-                console.log('⚠️ Wrong server detected, redirecting to localhost:3000');
-                const correctUrl = 'http://localhost:3000/owner.html';
-                if (confirm('You need to access the owner portal from the correct server.\n\nRedirect to: ' + correctUrl + '?')) {
+        (function() {
+            if (window.location.port === '5501' || window.location.port === '5500') {
+                var correctUrl = 'http://localhost:3000/owner.html';
+                if (confirm('Please access the owner portal from the correct server.\n\nRedirect to: ' + correctUrl + '?')) {
                     window.location.href = correctUrl;
-                    return;
                 }
             }
-            
-            // Wait a bit for other scripts to load
-            setTimeout(function() {
-                const loginForm = document.getElementById('login-form');
-                const loginScreen = document.getElementById('login-screen');
-                const dashboard = document.getElementById('dashboard');
-                const logoutBtn = document.getElementById('logout-btn');
-                
-                if (loginForm) {
-                    // Remove any existing listeners
-                    const newForm = loginForm.cloneNode(true);
-                    loginForm.parentNode.replaceChild(newForm, loginForm);
-                    
-                    // Add fresh login handler
-                    newForm.addEventListener('submit', function(e) {
-                        e.preventDefault();
-                        console.log('🔐 Login form submitted');
-                        
-                        const username = document.getElementById('username').value;
-                        const password = document.getElementById('password').value;
-                        
-                        console.log('Credentials:', username, password);
-                        
-                        if (username === 'admin' && password === '2025') {
-                            console.log('✅ Credentials correct');
-                            localStorage.setItem('ownerLoggedIn', 'true');
-                            
-                            // Hide login screen
-                            if (loginScreen) {
-                                loginScreen.style.display = 'none';
-                            }
-                            
-                            // Show dashboard
-                            if (dashboard) {
-                                dashboard.style.display = 'grid';
-                            }
-                            
-                            // Show success message
-                            alert('Login successful! Welcome to the Owner Portal.');
-                            
-                            // Try to initialize the main portal functions
-                            if (typeof loadDashboardData === 'function') {
-                                try {
-                                    loadDashboardData();
-                                    if (typeof loadOrders === 'function') loadOrders();
-                                } catch (error) {
-                                    console.log('Dashboard data load error:', error);
-                                }
-                            }
-                            
-                        } else {
-                            console.log('❌ Invalid credentials');
-                            alert('Invalid credentials. Please use:\nUsername: admin\nPassword: 2025');
-                            document.getElementById('password').value = '';
-                        }
-                    });
-                    
-                    console.log('✅ Emergency login handler attached');
-                }
-                
-                // Logout handler
-                if (logoutBtn) {
-                    logoutBtn.addEventListener('click', function() {
-                        localStorage.removeItem('ownerLoggedIn');
-                        if (loginScreen) loginScreen.style.display = 'flex';
-                        if (dashboard) dashboard.style.display = 'none';
-                        document.getElementById('username').value = '';
-                        document.getElementById('password').value = '';
-                        alert('Logged out successfully.');
-                    });
-                }
-                
-                // Check if already logged in
-                const isLoggedIn = localStorage.getItem('ownerLoggedIn') === 'true';
-                if (isLoggedIn) {
-                    console.log('✅ Already logged in, showing dashboard');
-                    if (loginScreen) loginScreen.style.display = 'none';
-                    if (dashboard) dashboard.style.display = 'grid';
-                    
-                    // Try to load dashboard data
-                    if (typeof loadDashboardData === 'function') {
-                        try {
-                            loadDashboardData();
-                        } catch (error) {
-                            console.log('Dashboard data load error:', error);
-                        }
-                    }
-                }
-                
-                // Pre-fill credentials for easier testing (optional - can be removed for production)
-                // const usernameField = document.getElementById('username');
-                // const passwordField = document.getElementById('password');
-                // if (usernameField) usernameField.value = 'admin';
-                // if (passwordField) passwordField.value = '2025';
-                
-            }, 1000);
-        });
+        })();
     </script>
 </body>
 </html>

@@ -179,8 +179,8 @@ window.apiService = new APIService();
 
 // WhatsApp Enquiry Function
 function sendWhatsAppEnquiry(productName, productId) {
-    const phoneNumber = "919345540373";
-    const message = `Hello Nature Care Impex, I'm interested in the product: ${productName} (ID: ${productId}). Could you please provide more details?`;
+    const phoneNumber = "33605705699";
+    const message = `Hello Fourways International Trading, I'm interested in the product: ${productName} (ID: ${productId}). Could you please provide more details?`;
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
 }
@@ -1522,7 +1522,7 @@ function showPaymentModal() {
     document.getElementById('payment-amount').textContent = `₹${currentOrder.customerDetails.total.toLocaleString()}`;
     document.getElementById('payment-product').textContent = currentOrder.product.name;
     
-    const qrData = `upi://pay?pa=naturecareimpex@paytm&pn=Nature Care Impex&am=${currentOrder.customerDetails.total}&cu=INR&tn=Order ${currentOrder.orderId}`;
+    const qrData = `upi://pay?pa=fourwaysinternational@paytm&pn=Fourways International Trading&am=${currentOrder.customerDetails.total}&cu=INR&tn=Order ${currentOrder.orderId}`;
     document.getElementById('payment-qr').src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(qrData)}`;
     
     modal.style.display = 'block';
@@ -1590,7 +1590,7 @@ function createPaymentModal() {
                                     </div>
                                 </div>
                                 <div class="upi-id">
-                                    <p><strong>UPI ID:</strong> naturecareimpex@paytm</p>
+                                    <p><strong>UPI ID:</strong> fourwaysinternational@paytm</p>
                                 </div>
                             </div>
                         </div>
@@ -1689,7 +1689,7 @@ function createProductCard(product) {
                 <div class="product-category">${product.category}</div>
                 <h3 class="product-title">${product.name}</h3>
                 <p class="product-desc">${product.description}</p>
-                <div class="product-price" style="font-size: 1.2rem; font-weight: bold; color: #D4AF37; margin: 10px 0;">₹${productPrice.toLocaleString()}</div>
+                <div class="product-price" style="font-size: 1.2rem; font-weight: bold; color: #1E5BFF; margin: 10px 0;">₹${productPrice.toLocaleString()}</div>
                 <div class="product-actions">
                     <a href="product-detail.html?id=${product.id}" class="btn btn-secondary">View Details</a>
                     <button class="btn btn-primary" onclick="sendWhatsAppEnquiry('${product.name}', '${product.id}')">Enquiry Now</button>
@@ -1739,7 +1739,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 console.log('📡 API Service loaded successfully');
-console.log('Nature Care Impex script loaded successfully!');
+console.log('Fourways International Trading script loaded successfully!');
 // Function to clear cached product data and reload fresh
 function clearProductCache() {
     localStorage.removeItem('allProducts');

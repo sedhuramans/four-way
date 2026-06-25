@@ -13,8 +13,8 @@ The production server on Render is failing to connect to MongoDB Atlas:
 ## Root Cause Analysis
 
 ### ✅ What's Working:
-- Environment detection: `nature-care-impex-1-7yri.onrender.com` ✅
-- Server URL detection: `https://nature-care-impex-1-7yri.onrender.com/api` ✅
+- Environment detection: `fourways-international-trading-1-7yri.onrender.com` ✅
+- Server URL detection: `https://fourways-international-trading-1-7yri.onrender.com/api` ✅
 - Fallback to localStorage working ✅
 
 ### ❌ What's Failing:
@@ -28,7 +28,7 @@ The production server on Render is failing to connect to MongoDB Atlas:
 
 **Go to Render Dashboard:**
 1. Visit: https://dashboard.render.com
-2. Find your service: `nature-care-impex-1-7yri`
+2. Find your service: `fourways-international-trading-1-7yri`
 3. Click on the service name
 4. Go to **"Environment"** tab
 

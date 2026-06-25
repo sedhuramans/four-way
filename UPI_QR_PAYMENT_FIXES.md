@@ -35,8 +35,8 @@
 ### **1. Enhanced QR Code Generation**
 ```javascript
 function generatePaymentQR(orderData) {
-    const upiId = 'naturecareimpex@paytm';
-    const merchantName = 'Nature Care Impex';
+    const upiId = 'fourwaysinternational@paytm';
+    const merchantName = 'Fourways International Trading';
     const amount = orderData.totalAmount;
     const transactionNote = `Order-${orderData.orderId}`;
     
@@ -56,8 +56,8 @@ function generatePaymentQR(orderData) {
 ### **2. Improved Payment App Integration**
 ```javascript
 function payWithApp(appName) {
-    const upiId = 'naturecareimpex@paytm';
-    const merchantName = 'Nature Care Impex';
+    const upiId = 'fourwaysinternational@paytm';
+    const merchantName = 'Fourways International Trading';
     const amount = orderData.totalAmount;
     const transactionNote = `Order-${orderId}`;
     
@@ -104,12 +104,12 @@ function validateQRCode() {
 
 ### **Correct Format (Now Used)**:
 ```
-upi://pay?pa=naturecareimpex@paytm&pn=Nature Care Impex&am=250&cu=INR&tn=Order-12345
+upi://pay?pa=fourwaysinternational@paytm&pn=Fourways International Trading&am=250&cu=INR&tn=Order-12345
 ```
 
 ### **Previous Format (Problematic)**:
 ```
-upi://pay?pa=naturecareimpex@paytm&pn=Nature%20Care%20Impex&am=250&cu=INR&tn=Order%2012345%20-%20Product&mode=02&purpose=00
+upi://pay?pa=fourwaysinternational@paytm&pn=Fourways%20International%20Trading&am=250&cu=INR&tn=Order%2012345%20-%20Product&mode=02&purpose=00
 ```
 
 **Key Changes**:

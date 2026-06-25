@@ -1,14 +1,14 @@
-# 💳 UPI QR Code Implementation - Nature Care Impex
+# 💳 UPI QR Code Implementation - Fourways International Trading
 
 ## ✅ UPI Payment System Overview
 
-The UPI QR code system has been fully implemented and standardized across the Nature Care Impex website for seamless digital payments.
+The UPI QR code system has been fully implemented and standardized across the Fourways International Trading website for seamless digital payments.
 
 ## 🎯 Key Features Implemented
 
 ### 1. **Standardized UPI ID**
-- **Business UPI ID**: `naturecareimpex@paytm`
-- **Merchant Name**: Nature Care Impex
+- **Business UPI ID**: `fourwaysinternational@paytm`
+- **Merchant Name**: Fourways International Trading
 - **Consistent across all payment flows**
 
 ### 2. **Dynamic QR Code Generation**
@@ -19,7 +19,7 @@ The UPI QR code system has been fully implemented and standardized across the Na
 
 ### 3. **UPI Payment URL Format**
 ```
-upi://pay?pa=naturecareimpex@paytm&pn=Nature Care Impex&am={amount}&cu=INR&tn=Order {orderId} - {productName}&mode=02&purpose=00
+upi://pay?pa=fourwaysinternational@paytm&pn=Fourways International Trading&am={amount}&cu=INR&tn=Order {orderId} - {productName}&mode=02&purpose=00
 ```
 
 ### 4. **Multi-App Support**
@@ -39,8 +39,8 @@ upi://pay?pa=naturecareimpex@paytm&pn=Nature Care Impex&am={amount}&cu=INR&tn=Or
 ### QR Code Generation Function
 ```javascript
 function generatePaymentQR(orderData) {
-    const upiId = 'naturecareimpex@paytm';
-    const merchantName = 'Nature Care Impex';
+    const upiId = 'fourwaysinternational@paytm';
+    const merchantName = 'Fourways International Trading';
     const amount = orderData.totalAmount;
     const currency = 'INR';
     const transactionNote = `Order ${orderData.orderId} - ${orderData.product?.name || 'Product'}`;
@@ -56,7 +56,7 @@ function generatePaymentQR(orderData) {
 ### Copy UPI ID Function
 ```javascript
 function copyUpiId() {
-    const upiId = 'naturecareimpex@paytm';
+    const upiId = 'fourwaysinternational@paytm';
     
     if (navigator.clipboard) {
         navigator.clipboard.writeText(upiId).then(() => {

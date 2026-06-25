@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Demo alert function
 function showDemoAlert() {
-    alert('🚀 This is a GitHub Pages demo version!\n\nFor full functionality including:\n• Real order processing\n• Database integration\n• Payment handling\n• Owner portal management\n• Real-time order tracking\n\nContact us at sales@naturecareimpex.com for the complete system deployment!');
+    alert('🚀 This is a GitHub Pages demo version!\n\nFor full functionality including:\n• Real order processing\n• Database integration\n• Payment handling\n• Owner portal management\n• Real-time order tracking\n\nContact us at sales@fourwaysint.com for the complete system deployment!');
 }
 
 // Contact form handler
@@ -61,7 +61,7 @@ function handleContactForm(event) {
     // Create mailto link
     const subject = `Inquiry about ${interest} - ${name}`;
     const body = `Name: ${name}\nEmail: ${email}\nInterest: ${interest}\n\nMessage:\n${message}`;
-    const mailtoLink = `mailto:sales@naturecareimpex.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoLink = `mailto:sales@fourwaysint.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     
     // Open email client
     window.location.href = mailtoLink;

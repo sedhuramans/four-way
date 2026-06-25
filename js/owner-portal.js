@@ -125,54 +125,51 @@ function setupFormHandlers() {
     if (addProductForm) {
         addProductForm.addEventListener('submit', handleAddProduct);
         
-        // Image preview handlers
-        const imageUrlInput1 = document.getElementById('product-image-url');
+        // Image preview + upload handlers (URL input or file upload via Cloudinary)
+        const imageUrlInput1  = document.getElementById('product-image-url');
         const imageFileInput1 = document.getElementById('product-image-file');
-        const imageUrlInput2 = document.getElementById('product-image-url-2');
+        const imageUrlInput2  = document.getElementById('product-image-url-2');
         const imageFileInput2 = document.getElementById('product-image-file-2');
-        
-        function setupImagePreview(urlInput, fileInput, previewContainerId, previewImgId) {
+        const imageUrlInput3  = document.getElementById('product-image-url-3');
+        const imageFileInput3 = document.getElementById('product-image-file-3');
+
+        function setupImageHandlers(urlInput, fileInput, previewContainerId, previewImgId) {
+            // URL input → show preview
             if (urlInput) {
                 urlInput.addEventListener('input', function() {
-                    if (this.value) {
+                    const container = document.getElementById(previewContainerId);
+                    const img = document.getElementById(previewImgId);
+                    if (container && img) {
+                        if (this.value) {
+                            img.src = this.value;
+                            container.style.display = 'block';
+                        } else {
+                            container.style.display = 'none';
+                        }
+                    }
+                    if (fileInput && this.value) fileInput.value = '';
+                });
+            }
+
+            // File input → preview locally (actual upload happens on submit)
+            if (fileInput) {
+                fileInput.addEventListener('change', function() {
+                    if (this.files[0]) {
                         const container = document.getElementById(previewContainerId);
                         const img = document.getElementById(previewImgId);
                         if (container && img) {
-                            img.src = this.value;
+                            img.src = URL.createObjectURL(this.files[0]);
                             container.style.display = 'block';
                         }
-                        if (fileInput) fileInput.value = '';
-                    }
-                });
-            }
-            
-            if (fileInput) {
-                fileInput.addEventListener('change', async function() {
-                    if (this.files[0]) {
-                        try {
-                            const base64 = await convertFileToBase64(this.files[0]);
-                            const container = document.getElementById(previewContainerId);
-                            const img = document.getElementById(previewImgId);
-                            if (container && img) {
-                                img.src = base64;
-                                container.style.display = 'block';
-                            }
-                            if (urlInput) urlInput.value = '';
-                        } catch (error) {
-                            console.error('Error converting file:', error);
-                            showNotification('Error processing image file', 'error');
-                        }
+                        if (urlInput) urlInput.value = '';
                     }
                 });
             }
         }
 
-        const imageUrlInput3 = document.getElementById('product-image-url-3');
-        const imageFileInput3 = document.getElementById('product-image-file-3');
-
-        setupImagePreview(imageUrlInput1, imageFileInput1, 'product-image-preview', 'preview-img');
-        setupImagePreview(imageUrlInput2, imageFileInput2, 'product-image-preview-2', 'preview-img-2');
-        setupImagePreview(imageUrlInput3, imageFileInput3, 'product-image-preview-3', 'preview-img-3');
+        setupImageHandlers(imageUrlInput1, imageFileInput1, 'product-image-preview',   'preview-img');
+        setupImageHandlers(imageUrlInput2, imageFileInput2, 'product-image-preview-2', 'preview-img-2');
+        setupImageHandlers(imageUrlInput3, imageFileInput3, 'product-image-preview-3', 'preview-img-3');
     }
 
     // Order Filter
@@ -1254,6 +1251,43 @@ function convertFileToBase64(file) {
     });
 }
 
+// Upload image file to server (Cloudinary or local storage) — used by add & edit forms
+async function uploadImageFile(file, label) {
+    if (!file || file.size === 0) return null;
+
+    const formData = new FormData();
+    formData.append('image', file);
+
+    let response;
+    try {
+        response = await fetch('/api/upload', { method: 'POST', body: formData });
+    } catch (netErr) {
+        throw new Error(`Network error uploading ${label}: ${netErr.message}`);
+    }
+
+    const result = await response.json();
+    if (!result.success) {
+        throw new Error(result.message || `Upload failed for ${label}`);
+    }
+
+    console.log(`✅ ${label} uploaded → ${result.url}`);
+    return result.url;
+}
+
+// Resolve image from file upload or URL string
+async function resolveProductImage(url, file, label) {
+    if (file && file.size > 0) return await uploadImageFile(file, label);
+    if (url) {
+        try {
+            new URL(url);
+            return url.trim();
+        } catch {
+            throw new Error('Invalid URL: ' + url);
+        }
+    }
+    return null;
+}
+
 // Database connection checker
 async function checkDatabaseConnection() {
     try {
@@ -1368,6 +1402,7 @@ async function loadProducts() {
         
         // Try to load from MongoDB first, then merge with localStorage
         let dbLoaded = false;
+        let isFallback = false;
         if (window.apiService) {
             try {
                 const result = await window.apiService.getProducts();
@@ -1375,7 +1410,11 @@ async function loadProducts() {
                     products.length = 0;
                     products.push(...result.data);
                     dbLoaded = true;
+                    isFallback = result.fallback === true;
                     console.log('✅ Products loaded from MongoDB:', products.length);
+                    if (isFallback) {
+                        console.warn('⚠️ Serving fallback products (DB empty or unavailable)');
+                    }
                 }
             } catch (error) {
                 console.log('⚠️ MongoDB unavailable, using local products:', error.message);
@@ -1404,7 +1443,18 @@ async function loadProducts() {
             return;
         }
         
-        grid.innerHTML = products.map(product => `
+        // Show fallback warning banner if displaying read-only default products
+        let fallbackBanner = '';
+        if (isFallback) {
+            fallbackBanner = `
+                <div style="background: #fff3cd; border: 1px solid #ffc107; padding: 12px 16px; margin-bottom: 20px; border-radius: 4px; color: #856404;">
+                    <strong>⚠️ Read-Only Mode:</strong> These are default products. The database is empty or unavailable.
+                    Delete/edit will not work until products are saved to MongoDB.
+                </div>
+            `;
+        }
+        
+        grid.innerHTML = fallbackBanner + products.map(product => `
             <div class="product-management-card">
                 <div class="product-card-header">
                     <div class="product-card-title">${product.name}</div>
@@ -1412,8 +1462,8 @@ async function loadProducts() {
                 </div>
                 <div class="product-card-body">
                     <div class="product-actions">
-                        <button class="btn-small" onclick="editProduct('${product.id}')">Edit</button>
-                        <button class="btn-small btn-danger" onclick="deleteProduct('${product.id}')">Delete</button>
+                        <button class="btn-small" onclick="editProduct('${product.id}')" ${isFallback ? 'disabled title="Not available in read-only mode"' : ''}>Edit</button>
+                        <button class="btn-small btn-danger" onclick="deleteProduct('${product.id}')" ${isFallback ? 'disabled title="Not available in read-only mode"' : ''}>Delete</button>
                     </div>
                 </div>
             </div>
@@ -1442,48 +1492,22 @@ async function handleAddProduct(e) {
         submitBtn.textContent = 'Adding Product...';
         submitBtn.disabled = true;
         
-        // Get primary image source (URL or file)
-        const imageUrl1 = document.getElementById('product-image-url').value.trim();
-        const imageFile1 = document.getElementById('product-image-file').files[0];
-        
-        // Get secondary image source (URL or file)
-        const imageUrl2 = document.getElementById('product-image-url-2').value.trim();
-        const imageFile2 = document.getElementById('product-image-file-2').files[0];
-        
-        // Get third image source (URL or file)
-        const imageUrl3 = document.getElementById('product-image-url-3').value.trim();
-        const imageFile3 = document.getElementById('product-image-file-3').files[0];
-        
-        async function processImage(url, file) {
-            if (url) {
-                try {
-                    new URL(url);
-                    return url;
-                } catch (e) {
-                    throw new Error('Invalid image URL format');
-                }
-            } else if (file) {
-                if (!file.type.startsWith('image/')) {
-                    throw new Error('Invalid file type');
-                }
-                if (file.size > 5 * 1024 * 1024) {
-                    throw new Error('File too large. Max 5MB allowed');
-                }
-                return await convertFileToBase64(file);
-            }
-            return null;
-        }
+        // Get image URLs or files — upload files to Cloudinary via server
+        const imageUrl1  = document.getElementById('product-image-url').value.trim();
+        const imageFile1 = document.getElementById('product-image-file')?.files[0];
+        const imageUrl2  = document.getElementById('product-image-url-2').value.trim();
+        const imageFile2 = document.getElementById('product-image-file-2')?.files[0];
+        const imageUrl3  = document.getElementById('product-image-url-3').value.trim();
+        const imageFile3 = document.getElementById('product-image-file-3')?.files[0];
 
-        let productImage1 = null;
-        let productImage2 = null;
-        let productImage3 = null;
-
+        let productImage1, productImage2, productImage3;
         try {
-            productImage1 = await processImage(imageUrl1, imageFile1);
-            productImage2 = await processImage(imageUrl2, imageFile2);
-            productImage3 = await processImage(imageUrl3, imageFile3);
+            submitBtn.textContent = 'Processing images...';
+            productImage1 = await resolveProductImage(imageUrl1, imageFile1, 'Image 1');
+            productImage2 = await resolveProductImage(imageUrl2, imageFile2, 'Image 2');
+            productImage3 = await resolveProductImage(imageUrl3, imageFile3, 'Image 3');
         } catch (e) {
-            showNotification(e.message, 'error');
+            showNotification('❌ ' + e.message, 'error');
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
             return;
@@ -1543,13 +1567,29 @@ async function handleAddProduct(e) {
 
         if (!savedToDatabase) {
             // Fallback: save to localStorage
-            const existing = JSON.parse(localStorage.getItem('adminProducts') || '[]');
-            // Assign a unique id if not set
-            if (!newProduct.id) newProduct.id = Date.now();
-            existing.push(newProduct);
-            localStorage.setItem('adminProducts', JSON.stringify(existing));
-            savedProduct = newProduct;
-            console.log('✅ Product saved to localStorage (offline mode):', savedProduct);
+            // Strip base64 image data to avoid exceeding localStorage quota (~5MB)
+            function stripBase64(val) {
+                return (typeof val === 'string' && val.startsWith('data:')) ? '[uploaded-image]' : val;
+            }
+            const productForStorage = {
+                ...newProduct,
+                image: stripBase64(newProduct.image),
+                image2: stripBase64(newProduct.image2),
+                image3: stripBase64(newProduct.image3)
+            };
+            if (!productForStorage.id) productForStorage.id = Date.now();
+            try {
+                const existing = JSON.parse(localStorage.getItem('adminProducts') || '[]');
+                existing.push(productForStorage);
+                localStorage.setItem('adminProducts', JSON.stringify(existing));
+            } catch (storageError) {
+                console.warn('⚠️ localStorage quota exceeded, clearing old cache and retrying...');
+                localStorage.removeItem('adminProducts');
+                localStorage.removeItem('allProducts');
+                localStorage.setItem('adminProducts', JSON.stringify([productForStorage]));
+            }
+            savedProduct = newProduct; // keep full data in memory
+            console.log('✅ Product saved to localStorage (offline mode):', productForStorage);
             showNotification('✅ Product saved locally (MongoDB offline). Will sync when DB is available.', 'success');
         }
         
@@ -1582,18 +1622,27 @@ async function handleAddProduct(e) {
             const result = await window.apiService.getProducts();
             if (result.success && result.data) {
                 // Update localStorage with fresh database data for main website
+                // Strip base64 images to avoid localStorage quota errors
                 const websiteProducts = result.data.map(product => ({
                     id: product.id,
                     name: product.name,
                     category: product.category,
-                    image: product.image,
+                    image: (typeof product.image === 'string' && product.image.startsWith('data:')) ? '[uploaded-image]' : product.image,
+                    image2: (typeof product.image2 === 'string' && product.image2.startsWith('data:')) ? '[uploaded-image]' : (product.image2 || null),
+                    image3: (typeof product.image3 === 'string' && product.image3.startsWith('data:')) ? '[uploaded-image]' : (product.image3 || null),
                     description: product.description,
                     sizes: product.sizes || ["Standard"],
                     price: product.price,
                     cost: product.cost,
                     stock: product.stock
                 }));
-                localStorage.setItem('allProducts', JSON.stringify(websiteProducts));
+                try {
+                    localStorage.setItem('allProducts', JSON.stringify(websiteProducts));
+                } catch (storageError) {
+                    console.warn('⚠️ localStorage quota exceeded on cache update, clearing...');
+                    localStorage.removeItem('allProducts');
+                    localStorage.setItem('allProducts', JSON.stringify(websiteProducts));
+                }
                 console.log('✅ Main website cache updated with fresh database data');
             }
         } catch (error) {
@@ -1610,6 +1659,8 @@ async function handleAddProduct(e) {
         // Reset form
         document.getElementById('add-product-form').reset();
         document.getElementById('product-image-preview').style.display = 'none';
+        document.getElementById('product-image-preview-2').style.display = 'none';
+        document.getElementById('product-image-preview-3').style.display = 'none';
         
         // Restore button state
         submitBtn.textContent = originalText;
@@ -1675,8 +1726,31 @@ async function syncProductsToMainSite() {
             stock: product.stock || 0
         }));
         
+        // Strip base64 image data before writing to localStorage to avoid quota errors
+        function stripBase64ForStorage(val) {
+            return (typeof val === 'string' && val.startsWith('data:')) ? '[uploaded-image]' : val;
+        }
+        const mainSiteProductsForStorage = mainSiteProducts.map(p => ({
+            ...p,
+            image: stripBase64ForStorage(p.image),
+            image2: stripBase64ForStorage(p.image2),
+            image3: stripBase64ForStorage(p.image3)
+        }));
+
         // Save to localStorage for main site to pick up
-        localStorage.setItem('allProducts', JSON.stringify(mainSiteProducts));
+        try {
+            localStorage.setItem('allProducts', JSON.stringify(mainSiteProductsForStorage));
+        } catch (storageError) {
+            console.warn('⚠️ localStorage quota exceeded during sync, clearing and retrying...');
+            localStorage.removeItem('allProducts');
+            localStorage.removeItem('adminProducts');
+            localStorage.removeItem('productUpdateEvent');
+            try {
+                localStorage.setItem('allProducts', JSON.stringify(mainSiteProductsForStorage));
+            } catch (e) {
+                console.error('❌ Cannot write to localStorage even after clearing:', e.message);
+            }
+        }
         
         // Trigger event for main site to refresh if it's open in another tab
         localStorage.setItem('productUpdateEvent', Date.now().toString());
@@ -1885,24 +1959,30 @@ function editProduct(productId) {
 
                     
                     <div class="form-group">
-                        <label for="edit-product-image">Primary Image URL</label>
-                        <input type="url" id="edit-product-image" value="${product.image}" placeholder="https://example.com/image1.jpg">
+                        <label for="edit-product-image">Primary Image</label>
+                        <input type="url" id="edit-product-image" value="${product.image && !product.image.startsWith('data:') ? product.image : ''}" placeholder="https://example.com/image1.jpg">
+                        <div style="margin-top:6px;font-size:0.78rem;color:#666;">— or upload a file —</div>
+                        <input type="file" id="edit-product-image-file" accept="image/*,.heic,.heif,.avif" style="margin-top:4px;">
                         <div class="image-preview" id="edit-image-preview" style="display: ${product.image ? 'block' : 'none'};">
-                            <img id="edit-preview-img" src="${product.image}" alt="Preview" style="max-width: 100px; max-height: 100px; border-radius: 8px; margin-top: 10px;">
+                            <img id="edit-preview-img" src="${product.image || ''}" alt="Preview" style="max-width: 100px; max-height: 100px; border-radius: 8px; margin-top: 10px;">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="edit-product-image-2">Secondary Image URL</label>
-                        <input type="url" id="edit-product-image-2" value="${product.image2 || ''}" placeholder="https://example.com/image2.jpg">
+                        <label for="edit-product-image-2">Secondary Image</label>
+                        <input type="url" id="edit-product-image-2" value="${product.image2 && !product.image2.startsWith('data:') ? product.image2 : ''}" placeholder="https://example.com/image2.jpg">
+                        <div style="margin-top:6px;font-size:0.78rem;color:#666;">— or upload a file —</div>
+                        <input type="file" id="edit-product-image-file-2" accept="image/*,.heic,.heif,.avif" style="margin-top:4px;">
                         <div class="image-preview" id="edit-image-preview-2" style="display: ${product.image2 ? 'block' : 'none'};">
                             <img id="edit-preview-img-2" src="${product.image2 || ''}" alt="Preview 2" style="max-width: 100px; max-height: 100px; border-radius: 8px; margin-top: 10px;">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="edit-product-image-3">Third Image URL</label>
-                        <input type="url" id="edit-product-image-3" value="${product.image3 || ''}" placeholder="https://example.com/image3.jpg">
+                        <label for="edit-product-image-3">Third Image</label>
+                        <input type="url" id="edit-product-image-3" value="${product.image3 && !product.image3.startsWith('data:') ? product.image3 : ''}" placeholder="https://example.com/image3.jpg">
+                        <div style="margin-top:6px;font-size:0.78rem;color:#666;">— or upload a file —</div>
+                        <input type="file" id="edit-product-image-file-3" accept="image/*,.heic,.heif,.avif" style="margin-top:4px;">
                         <div class="image-preview" id="edit-image-preview-3" style="display: ${product.image3 ? 'block' : 'none'};">
                             <img id="edit-preview-img-3" src="${product.image3 || ''}" alt="Preview 3" style="max-width: 100px; max-height: 100px; border-radius: 8px; margin-top: 10px;">
                         </div>
@@ -1927,24 +2007,32 @@ function editProduct(productId) {
     // Add form handler
     document.getElementById('edit-product-form').addEventListener('submit', handleEditProduct);
     
-    // Add image preview handlers
-    const setupEditPreview = (inputId, previewId, imgId) => {
-        const input = document.getElementById(inputId);
-        if (input) {
-            input.addEventListener('input', function() {
-                if (this.value) {
-                    const preview = document.getElementById(previewId);
-                    const previewImg = document.getElementById(imgId);
-                    previewImg.src = this.value;
-                    preview.style.display = 'block';
+    // Add image preview handlers (URL input and file input)
+    const setupEditPreview = (urlInputId, fileInputId, previewId, imgId) => {
+        const urlInput = document.getElementById(urlInputId);
+        const fileInput = document.getElementById(fileInputId);
+        const preview = document.getElementById(previewId);
+        const previewImg = document.getElementById(imgId);
+        if (urlInput) {
+            urlInput.addEventListener('input', function() {
+                if (this.value) { previewImg.src = this.value; preview.style.display = 'block'; }
+            });
+        }
+        if (fileInput) {
+            fileInput.addEventListener('change', function() {
+                const file = this.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(ev) { previewImg.src = ev.target.result; preview.style.display = 'block'; };
+                    reader.readAsDataURL(file);
                 }
             });
         }
     };
     
-    setupEditPreview('edit-product-image', 'edit-image-preview', 'edit-preview-img');
-    setupEditPreview('edit-product-image-2', 'edit-image-preview-2', 'edit-preview-img-2');
-    setupEditPreview('edit-product-image-3', 'edit-image-preview-3', 'edit-preview-img-3');
+    setupEditPreview('edit-product-image', 'edit-product-image-file', 'edit-image-preview', 'edit-preview-img');
+    setupEditPreview('edit-product-image-2', 'edit-product-image-file-2', 'edit-image-preview-2', 'edit-preview-img-2');
+    setupEditPreview('edit-product-image-3', 'edit-product-image-file-3', 'edit-image-preview-3', 'edit-preview-img-3');
 }
 
 // Handle edit product form submission
@@ -1958,6 +2046,42 @@ async function handleEditProduct(e) {
         submitBtn.disabled = true;
         
         const productId = document.getElementById('edit-product-id').value;
+        const existingProduct = products.find(p => p.id == productId) || {};
+
+        async function resolveEditImage(urlInputId, fileInputId, existingValue, label) {
+            const urlInput = document.getElementById(urlInputId);
+            const fileInput = document.getElementById(fileInputId);
+            const url = urlInput ? urlInput.value.trim() : '';
+            const file = fileInput ? fileInput.files[0] : null;
+
+            if (file && file.size > 0) {
+                submitBtn.textContent = `Uploading ${label}...`;
+                return await uploadImageFile(file, label);
+            }
+            if (url) {
+                try {
+                    new URL(url);
+                    return url;
+                } catch {
+                    throw new Error('Invalid URL for ' + label);
+                }
+            }
+            return existingValue || null;
+        }
+
+        let img1, img2, img3;
+        try {
+            submitBtn.textContent = 'Processing images...';
+            img1 = await resolveEditImage('edit-product-image', 'edit-product-image-file', existingProduct.image, 'Image 1');
+            img2 = await resolveEditImage('edit-product-image-2', 'edit-product-image-file-2', existingProduct.image2, 'Image 2');
+            img3 = await resolveEditImage('edit-product-image-3', 'edit-product-image-file-3', existingProduct.image3, 'Image 3');
+        } catch (imgErr) {
+            showNotification(imgErr.message, 'error');
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+            return;
+        }
+
         const updatedProduct = {
             id: productId,
             name: document.getElementById('edit-product-name').value,
@@ -1965,12 +2089,11 @@ async function handleEditProduct(e) {
             description: document.getElementById('edit-product-description').value,
             price: parseFloat(document.getElementById('edit-product-price').value),
             cost: parseFloat(document.getElementById('edit-product-cost').value),
-            // Preserve existing values as inputs were removed
-            stock: products.find(p => p.id == productId)?.stock || 999,
-            minStock: products.find(p => p.id == productId)?.minStock || 0,
-            image: document.getElementById('edit-product-image').value || document.getElementById('edit-product-image-2').value || document.getElementById('edit-product-image-3').value || 'https://via.placeholder.com/300x200',
-            image2: document.getElementById('edit-product-image-2').value || null,
-            image3: document.getElementById('edit-product-image-3').value || null
+            stock: existingProduct.stock || 999,
+            minStock: existingProduct.minStock || 0,
+            image: img1 || img2 || img3 || 'https://via.placeholder.com/300x200',
+            image2: img2 || null,
+            image3: img3 || null
         };
         
         // Try to update in MongoDB first
@@ -2005,6 +2128,9 @@ async function handleEditProduct(e) {
         // Close modal and refresh
         closeModal('edit-product-modal');
         await loadProducts();
+
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
         
         if (!updateSuccess) {
             showNotification('Product updated locally!', 'success');
@@ -2626,11 +2752,11 @@ function updateMonthlySalesData(allOrders, year) {
             }
 
             const rowStyle = isCurrentMonth
-                ? 'background:#fffbea; border-left:4px solid #C9A84C; font-weight:700;'
+                ? 'background:#fffbea; border-left:4px solid #5FA8FF; font-weight:700;'
                 : '';
 
             const badge = isCurrentMonth
-                ? ` <span style="font-size:0.68rem;background:#C9A84C;color:#fff;
+                ? ` <span style="font-size:0.68rem;background:#5FA8FF;color:#fff;
                         padding:1px 8px;border-radius:10px;font-weight:700;
                         vertical-align:middle;margin-left:5px;">
                         Today: ${currentDay} ${month.month}

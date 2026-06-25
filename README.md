@@ -1,6 +1,6 @@
-# Nature Care Impex - Complete E-commerce Website
+# Fourways International Trading - Complete E-commerce Website
 
-A modern, responsive website for Nature Care Impex with integrated owner portal and payment system.
+A modern, responsive website for Fourways International Trading with integrated owner portal and payment system.
 
 ## 🚀 Quick Start
 

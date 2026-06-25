@@ -151,7 +151,7 @@ The system automatically falls back to localStorage when MongoDB is unavailable:
 ```bash
 # Clone repository
 git clone <repository-url>
-cd nature-care-impex
+cd fourways-international-trading
 
 # Install dependencies
 npm install
@@ -300,4 +300,4 @@ The system is production-ready with:
 
 **🎉 MongoDB Integration Complete!**
 
-Your Nature Care Impex website now has full MongoDB integration while maintaining all existing functionality. The system automatically handles online/offline scenarios and provides a seamless user experience.
+Your Fourways International Trading website now has full MongoDB integration while maintaining all existing functionality. The system automatically handles online/offline scenarios and provides a seamless user experience.

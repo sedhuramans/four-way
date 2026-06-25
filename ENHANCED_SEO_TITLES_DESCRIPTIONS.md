@@ -27,30 +27,30 @@ The SEO tool was detecting "No page description found" because the previous meta
 
 ### Homepage
 **Before:**
-- Title: `Nature Care Impex - Sustainable Solutions`
-- Description: `Nature Care Impex - Leading exporter of premium cocopeat, bamboo products, and eco-friendly solutions...`
+- Title: `Fourways International Trading - Sustainable Solutions`
+- Description: `Fourways International Trading - Leading exporter of premium cocopeat, bamboo products, and eco-friendly solutions...`
 
 **After:**
-- Title: `🌱 Buy Premium Cocopeat & Bamboo Products Online | Nature Care Impex India`
-- Description: `🌱 Buy Premium Cocopeat & Bamboo Products Online | Nature Care Impex - India's #1 Eco-Friendly Exporter. 100% Organic Coir Products, Grow Bags & Sustainable Solutions. Free Shipping Available!`
+- Title: `🌱 Buy Premium Cocopeat & Bamboo Products Online | Fourways International Trading India`
+- Description: `🌱 Buy Premium Cocopeat & Bamboo Products Online | Fourways International Trading - India's #1 Eco-Friendly Exporter. 100% Organic Coir Products, Grow Bags & Sustainable Solutions. Free Shipping Available!`
 
 ### Products Page
 **Before:**
-- Title: `Our Products - Nature Care Impex`
+- Title: `Our Products - Fourways International Trading`
 - Description: `Browse our premium collection of cocopeat, bamboo products, and eco-friendly solutions...`
 
 **After:**
-- Title: `🛒 Shop Premium Cocopeat & Bamboo Products Online | Nature Care Impex Store`
-- Description: `🛒 Shop Premium Cocopeat, Bamboo Products & Eco-Friendly Solutions Online | Nature Care Impex - Best Prices, Quality Guaranteed, Fast Shipping Across India & Worldwide!`
+- Title: `🛒 Shop Premium Cocopeat & Bamboo Products Online | Fourways International Trading Store`
+- Description: `🛒 Shop Premium Cocopeat, Bamboo Products & Eco-Friendly Solutions Online | Fourways International Trading - Best Prices, Quality Guaranteed, Fast Shipping Across India & Worldwide!`
 
 ### Contact Page
 **Before:**
-- Title: `Contact Us - Nature Care Impex`
-- Description: `Contact Nature Care Impex for premium cocopeat, bamboo products, and eco-friendly solutions...`
+- Title: `Contact Us - Fourways International Trading`
+- Description: `Contact Fourways International Trading for premium cocopeat, bamboo products, and eco-friendly solutions...`
 
 **After:**
-- Title: `📞 Contact Nature Care Impex - Get Instant Quotes for Cocopeat & Bamboo Products`
-- Description: `📞 Contact Nature Care Impex for Premium Cocopeat & Bamboo Products | Get Instant Quotes, Bulk Orders & Export Inquiries. Call +91-9345540373 or Email for Best Prices!`
+- Title: `📞 Contact Fourways International Trading - Get Instant Quotes for Cocopeat & Bamboo Products`
+- Description: `📞 Contact Fourways International Trading for Premium Cocopeat & Bamboo Products | Get Instant Quotes, Bulk Orders & Export Inquiries. Call +33 6 05 70 56 99 or Email for Best Prices!`
 
 ## 🎯 SEO Benefits
 
@@ -88,7 +88,7 @@ The SEO tool was detecting "No page description found" because the previous meta
 - Buy cocopeat online
 - Bamboo products India
 - Eco-friendly products
-- Nature Care Impex
+- Fourways International Trading
 - Cocopeat exporter
 - Sustainable products
 

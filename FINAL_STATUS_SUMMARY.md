@@ -89,7 +89,7 @@ Since all fixes are working correctly and match your requirements:
 
 ## 🚀 **Ready to Deploy!**
 
-Your Nature Care Impex website is:
+Your Fourways International Trading website is:
 - ✅ Fully functional
 - ✅ Properly organized
 - ✅ Ready for GitHub

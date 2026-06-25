@@ -51,7 +51,7 @@
 ### 1. **Create Repository**
 - Go to GitHub.com
 - Click "New Repository"
-- Name it (e.g., "nature-care-impex")
+- Name it (e.g., "fourways-international-trading")
 - Make it public
 - Initialize with README
 
@@ -114,7 +114,7 @@ your-repo/
 - ❌ Real order tracking
 
 ## 🚀 **Result:**
-A beautiful, professional demo website showcasing your Nature Care Impex business that works perfectly on GitHub Pages!
+A beautiful, professional demo website showcasing your Fourways International Trading business that works perfectly on GitHub Pages!
 
 ---
 

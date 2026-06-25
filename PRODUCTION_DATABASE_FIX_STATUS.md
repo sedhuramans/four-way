@@ -44,9 +44,9 @@ MONGODB_ATLAS_URI:
 ```
 
 ### ✅ Working API Endpoints:
-- `https://nature-care-impex-1-7yri.onrender.com/api/health` → 200 OK
-- `https://nature-care-impex-1-7yri.onrender.com/api/products` → 200 OK with data
-- `https://nature-care-impex-1-7yri.onrender.com/api/orders` → 200 OK with data
+- `https://fourways-international-trading-1-7yri.onrender.com/api/health` → 200 OK
+- `https://fourways-international-trading-1-7yri.onrender.com/api/products` → 200 OK with data
+- `https://fourways-international-trading-1-7yri.onrender.com/api/orders` → 200 OK with data
 
 ### ✅ Owner Portal Functionality:
 - Products loading from database ✅
@@ -61,7 +61,7 @@ MONGODB_ATLAS_URI:
 - Monitor deployment in Render dashboard
 
 ### 2. Test Production Site
-- Visit: `https://nature-care-impex-1-7yri.onrender.com/owner`
+- Visit: `https://fourways-international-trading-1-7yri.onrender.com/owner`
 - Check browser console for success messages
 - Verify products and orders load properly
 

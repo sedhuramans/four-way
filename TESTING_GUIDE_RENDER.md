@@ -15,7 +15,7 @@ All fixes have been committed and pushed to GitHub. Render should automatically 
 ### 2. Owner Portal Integration
 - ✅ Server routes fixed to serve correct owner.html from root
 - ✅ API routes moved before static file serving (critical fix)
-- ✅ Owner portal accessible at: `https://nature-care-impex-1.onrender.com/owner.html`
+- ✅ Owner portal accessible at: `https://fourways-international-trading-1.onrender.com/owner.html`
 
 ### 3. Add New Product Form
 - ✅ Fixed form field mismatch (product-image-url and product-image-file)
@@ -32,12 +32,12 @@ All fixes have been committed and pushed to GitHub. Render should automatically 
 
 ### Wait for Deployment
 1. Go to your Render dashboard: https://dashboard.render.com
-2. Find "nature-care-impex-1" service
+2. Find "fourways-international-trading-1" service
 3. Wait for "Deploy" status to show "Live" (2-3 minutes)
 4. Check the logs for any errors
 
 ### Test 1: Place a New Order
-1. Visit: https://nature-care-impex-1.onrender.com
+1. Visit: https://fourways-international-trading-1.onrender.com
 2. Click "Products" in navigation
 3. Click "Buy Now" on any product
 4. Fill in order details:
@@ -52,7 +52,7 @@ All fixes have been committed and pushed to GitHub. Render should automatically 
 8. Note the Order ID (e.g., NCI-20250116-XXXX)
 
 ### Test 2: Check Owner Portal
-1. Visit: https://nature-care-impex-1.onrender.com/owner.html
+1. Visit: https://fourways-international-trading-1.onrender.com/owner.html
 2. Login with:
    - Username: admin
    - Password: 2025
@@ -65,7 +65,7 @@ All fixes have been committed and pushed to GitHub. Render should automatically 
    - Should have "🗑️ Delete" button
 
 ### Test 3: Track Order
-1. Visit: https://nature-care-impex-1.onrender.com/track-order.html
+1. Visit: https://fourways-international-trading-1.onrender.com/track-order.html
 2. Enter your Order ID from Test 1
 3. Click "Track Order"
 4. Should display:
@@ -102,7 +102,7 @@ All fixes have been committed and pushed to GitHub. Render should automatically 
 Make sure these are set in Render dashboard:
 
 1. Go to: https://dashboard.render.com
-2. Select your service "nature-care-impex-1"
+2. Select your service "fourways-international-trading-1"
 3. Click "Environment" tab
 4. Verify these variables exist:
 
@@ -145,7 +145,7 @@ PORT=3000
 📡 API Service loaded successfully
 🔌 API Service initialized
 ✅ Server connected successfully
-🔗 Server URL: https://nature-care-impex-1.onrender.com/api
+🔗 Server URL: https://fourways-international-trading-1.onrender.com/api
 ```
 
 ### On Owner Portal:
@@ -191,9 +191,9 @@ If any test fails:
 
 ## 🔗 Important URLs
 
-- **Main Website**: https://nature-care-impex-1.onrender.com
-- **Owner Portal**: https://nature-care-impex-1.onrender.com/owner.html
-- **Track Order**: https://nature-care-impex-1.onrender.com/track-order.html
+- **Main Website**: https://fourways-international-trading-1.onrender.com
+- **Owner Portal**: https://fourways-international-trading-1.onrender.com/owner.html
+- **Track Order**: https://fourways-international-trading-1.onrender.com/track-order.html
 - **GitHub Repo**: https://github.com/keerthivasan98406-blip/nature_care_impex
 - **Render Dashboard**: https://dashboard.render.com
 

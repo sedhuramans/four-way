@@ -1,7 +1,7 @@
 # 🚨 IMMEDIATE PRODUCTION DATABASE FIX
 
 ## Current Issue
-Your production website `naturecareimpex.leonux.online` cannot connect to MongoDB:
+Your production website `fourwaysinternational.leonux.online` cannot connect to MongoDB:
 - ❌ 503 Service Unavailable errors
 - ❌ Database connection timeouts
 - ❌ Products falling back to localStorage
@@ -10,7 +10,7 @@ Your production website `naturecareimpex.leonux.online` cannot connect to MongoD
 
 ### Step 1: Identify Your Hosting Platform
 
-Your domain `naturecareimpex.leonux.online` could be hosted on:
+Your domain `fourwaysinternational.leonux.online` could be hosted on:
 - **Render.com** (with custom domain)
 - **Vercel**
 - **Netlify** 
@@ -20,7 +20,7 @@ Your domain `naturecareimpex.leonux.online` could be hosted on:
 
 #### **If using Render.com:**
 1. Go to: https://dashboard.render.com
-2. Find your service (might be named differently but serving `naturecareimpex.leonux.online`)
+2. Find your service (might be named differently but serving `fourwaysinternational.leonux.online`)
 3. Go to **"Environment"** tab
 4. Add/Update environment variable:
    - **Key**: `MONGODB_ATLAS_URI`
@@ -64,8 +64,8 @@ Your domain `naturecareimpex.leonux.online` could be hosted on:
 After updating environment variables:
 1. Wait 2-5 minutes for deployment
 2. Test these URLs:
-   - `https://naturecareimpex.leonux.online/api/health`
-   - `https://naturecareimpex.leonux.online/api/products`
+   - `https://fourwaysinternational.leonux.online/api/health`
+   - `https://fourwaysinternational.leonux.online/api/products`
 3. Should return data instead of 503 errors
 
 ## 🚀 ALTERNATIVE: Force Redeploy
@@ -89,8 +89,8 @@ git push origin main
 ## 📊 Expected Results
 
 After fix:
-- ✅ `https://naturecareimpex.leonux.online/api/health` returns 200 OK
-- ✅ `https://naturecareimpex.leonux.online/api/products` returns product data
+- ✅ `https://fourwaysinternational.leonux.online/api/health` returns 200 OK
+- ✅ `https://fourwaysinternational.leonux.online/api/products` returns product data
 - ✅ No more 503 errors
 - ✅ Products load from database, not localStorage
 
@@ -98,8 +98,8 @@ After fix:
 
 Test these URLs in browser after fix:
 ```
-https://naturecareimpex.leonux.online/api/health
-https://naturecareimpex.leonux.online/api/products
+https://fourwaysinternational.leonux.online/api/health
+https://fourwaysinternational.leonux.online/api/products
 ```
 
 Should return JSON data instead of errors.

@@ -10,7 +10,7 @@ Chrome is implementing **Private Network Access** restrictions to prevent:
 ## What This Means
 
 ### Current Behavior:
-- **Production site** (`https://nature-care-impex-cliy.onrender.com`) trying to access **localhost** (`http://localhost:3000`)
+- **Production site** (`https://fourways-international-trading-cliy.onrender.com`) trying to access **localhost** (`http://localhost:3000`)
 - Chrome blocks this as a **security risk**
 - Results in CORS errors and failed API calls
 
@@ -90,8 +90,8 @@ Status: ✅ Same-origin, allowed
 
 ### 2. Production (Render):
 ```
-Environment: nature-care-impex-cliy.onrender.com
-API URL: https://nature-care-impex-cliy.onrender.com/api
+Environment: fourways-international-trading-cliy.onrender.com
+API URL: https://fourways-international-trading-cliy.onrender.com/api
 Status: ✅ Same-origin, secure context
 ```
 

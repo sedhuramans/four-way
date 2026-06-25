@@ -1,7 +1,7 @@
 # 🚨 Render Service Suspended - Reactivation Guide
 
 ## Current Issue
-Your Render service `nature-care-impex` is **SUSPENDED**, which means:
+Your Render service `fourways-international-trading` is **SUSPENDED**, which means:
 - ❌ Website is offline
 - ❌ No logs available
 - ❌ Deployments won't work
@@ -12,7 +12,7 @@ Your Render service `nature-care-impex` is **SUSPENDED**, which means:
 ### Step 1: Access Render Dashboard
 1. Go to: https://dashboard.render.com
 2. Login to your account
-3. Find your service: `nature-care-impex`
+3. Find your service: `fourways-international-trading`
 
 ### Step 2: Check Suspension Reason
 Common reasons for suspension:
@@ -70,7 +70,7 @@ OWNER_PASSWORD=2025
 
 ## 🎯 After Reactivation
 
-1. **Test the website**: https://nature-care-impex-1.onrender.com
+1. **Test the website**: https://fourways-international-trading-1.onrender.com
 2. **Check all routes work**:
    - `/` (Home)
    - `/products` (Products)

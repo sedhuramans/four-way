@@ -14,13 +14,13 @@ The direct payment buttons (Paytm, Google Pay, PhonePe) were not opening the res
 ### 1. Complete URL Parameters
 ```javascript
 // Enhanced Paytm URL
-paytmmp://pay?pa=naveethulhussain700-4@okaxis&pn=Nature%20Care%20Impex&am=250&cu=INR&tn=Order-123
+paytmmp://pay?pa=naveethulhussain700-4@okaxis&pn=Fourways%20International%20Trading&am=250&cu=INR&tn=Order-123
 
 // Enhanced Google Pay URL  
-tez://upi/pay?pa=naveethulhussain700-4@okaxis&pn=Nature%20Care%20Impex&am=250&cu=INR&tn=Order-123
+tez://upi/pay?pa=naveethulhussain700-4@okaxis&pn=Fourways%20International%20Trading&am=250&cu=INR&tn=Order-123
 
 // Enhanced PhonePe URL
-phonepe://pay?pa=naveethulhussain700-4@okaxis&pn=Nature%20Care%20Impex&am=250&cu=INR&tn=Order-123
+phonepe://pay?pa=naveethulhussain700-4@okaxis&pn=Fourways%20International%20Trading&am=250&cu=INR&tn=Order-123
 ```
 
 ### 2. Multiple Opening Methods
@@ -60,7 +60,7 @@ For Google Pay, multiple formats are tried:
 3. App should open with:
    - UPI ID: `naveethulhussain700-4@okaxis`
    - Amount: Product price
-   - Merchant: Nature Care Impex
+   - Merchant: Fourways International Trading
    - Note: Order-[OrderID]
 
 ### 2. Enhanced Test

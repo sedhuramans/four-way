@@ -1,4 +1,4 @@
-# GitHub Upload Guide - Nature Care Impex 📁
+# GitHub Upload Guide - Fourways International Trading 📁
 
 ## Essential Files to Upload ✅
 
@@ -113,7 +113,7 @@
 Your final GitHub repo should look like this:
 
 ```
-nature-care-impex/
+fourways-international-trading/
 ├── 📁 assets/
 │   └── images/
 ├── 📁 css/
@@ -196,10 +196,10 @@ git add css/ js/ assets/ server/
 git add docs/ README.md .gitignore
 
 # Commit
-git commit -m "Initial commit: Nature Care Impex website"
+git commit -m "Initial commit: Fourways International Trading website"
 
 # Add remote and push
-git remote add origin https://github.com/yourusername/nature-care-impex.git
+git remote add origin https://github.com/yourusername/fourways-international-trading.git
 git push -u origin main
 ```
 

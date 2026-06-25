@@ -10,7 +10,7 @@
 ### Step 1: Access Render Dashboard
 1. Go to: **https://dashboard.render.com**
 2. Login to your account
-3. Find service: **nature-care-impex-1-7yri** (or similar name)
+3. Find service: **fourways-international-trading-1-7yri** (or similar name)
 
 ### Step 2: Check Environment Variables
 1. Click on your service name
@@ -44,7 +44,7 @@ If `MONGODB_ATLAS_URI` is missing or incorrect:
 ```
 ✅ MongoDB Atlas Connected: ac-cklb9ca-shard-00-00.boime9a.mongodb.net
 📊 Database: nature_care_impex
-🚀 Nature Care Impex Server Started
+🚀 Fourways International Trading Server Started
 ```
 
 ## Alternative: MongoDB Atlas IP Whitelist
@@ -65,13 +65,13 @@ If environment variables are correct but still failing:
 
 ### Test API Health:
 ```
-https://nature-care-impex-1-7yri.onrender.com/api/health
+https://fourways-international-trading-1-7yri.onrender.com/api/health
 ```
-Should return: `{"success": true, "message": "Nature Care Impex API is running"}`
+Should return: `{"success": true, "message": "Fourways International Trading API is running"}`
 
 ### Test Products API:
 ```
-https://nature-care-impex-1-7yri.onrender.com/api/products
+https://fourways-international-trading-1-7yri.onrender.com/api/products
 ```
 Should return: `{"success": true, "data": [...]}`
 

@@ -112,7 +112,7 @@ Look for:
 
 ### Render Deployment:
 1. Go to: https://dashboard.render.com
-2. Select: nature-care-impex-1
+2. Select: fourways-international-trading-1
 3. Check: Environment variables set
 4. View: Logs for database connection
 
@@ -212,7 +212,7 @@ Your system is **production-ready** with:
 
 ## 🎉 Congratulations!
 
-Your Nature Care Impex platform is now a **professional, multi-device, real-time e-commerce system** with:
+Your Fourways International Trading platform is now a **professional, multi-device, real-time e-commerce system** with:
 
 - 🌐 Cloud database storage
 - 📱 Access from any device

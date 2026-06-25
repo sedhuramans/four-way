@@ -1,9 +1,9 @@
-# Nature Care Impex - File Linking Report
+# Fourways International Trading - File Linking Report
 
 ## ✅ SCAN COMPLETE - ALL FILES CORRECTLY LINKED
 
 ### 📋 Summary
-All files in the Nature Care Impex website have been scanned and verified. All internal links, CSS references, and JavaScript files are properly connected and functional.
+All files in the Fourways International Trading website have been scanned and verified. All internal links, CSS references, and JavaScript files are properly connected and functional.
 
 ---
 
@@ -133,8 +133,8 @@ All files in the Nature Care Impex website have been scanned and verified. All i
 ## 📞 Support Information
 
 **Contact Details:**
-- Email: naturecareimpex@gmail.com
-- Phone: 9345540373
+- Email: sales@fourwaysint.com
+- Phone: +33 6 05 70 56 99
 - Address: Shop 11A bajar street, kottakuppam, vanur taluk, villupuram district, tamilnadu, 605104
 - GSTIN: 33AAYFN7568G
 

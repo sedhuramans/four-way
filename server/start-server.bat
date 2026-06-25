@@ -1,5 +1,5 @@
 @echo off
-echo Starting Nature Care Impex Server...
+echo Starting Fourways International Trading Server...
 echo.
 echo Make sure you have installed dependencies:
 echo npm install

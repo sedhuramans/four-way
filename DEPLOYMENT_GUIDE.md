@@ -1,4 +1,4 @@
-# 🚀 Deployment Guide - Nature Care Impex
+# 🚀 Deployment Guide - Fourways International Trading
 
 ## Why GitHub Pages Doesn't Work
 
@@ -27,7 +27,7 @@ git push origin main
 1. **Sign up** at [render.com](https://render.com)
 2. **Connect your GitHub** repository
 3. **Create a Web Service**:
-   - **Name**: `nature-care-impex`
+   - **Name**: `fourways-international-trading`
    - **Environment**: `Node`
    - **Build Command**: `cd server && npm install`
    - **Start Command**: `cd server && npm start`
@@ -83,4 +83,4 @@ For Vercel, you'd need to convert to serverless functions, which requires code r
 3. Test the deployed application
 4. Update any hardcoded localhost URLs if needed
 
-Your Nature Care Impex platform will then be accessible worldwide! 🌍
+Your Fourways International Trading platform will then be accessible worldwide! 🌍

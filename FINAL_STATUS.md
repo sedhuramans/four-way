@@ -142,8 +142,8 @@ After 2-3 minutes, your site should have:
 
 ## 📞 **Your Business Info on Site:**
 
-- **Email**: naturecareimpex@gmail.com
-- **Phone**: 9345540373
+- **Email**: sales@fourwaysint.com
+- **Phone**: +33 6 05 70 56 99
 - **Address**: Shop 11A bajar street, kottakuppam, vanur taluk, villupuram district, tamilnadu, 605104
 - **GSTIN**: 33AAYFN7568G
 
@@ -170,7 +170,7 @@ If you want real order processing, database, and payment system:
 
 ## ✅ **FINAL RESULT:**
 
-**Your Nature Care Impex website is:**
+**Your Fourways International Trading website is:**
 - ✅ Professional
 - ✅ Clean (no demo sections)
 - ✅ Fully styled

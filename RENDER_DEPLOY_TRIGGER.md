@@ -7,7 +7,7 @@ Files have been pushed to GitHub but Render.com hasn't deployed the changes yet.
 
 ### Method 1: Manual Deploy (Recommended)
 1. **Go to Render Dashboard**: https://dashboard.render.com
-2. **Find your service**: `nature-care-impex`
+2. **Find your service**: `fourways-international-trading`
 3. **Click "Manual Deploy"** button
 4. **Select "Deploy latest commit"**
 5. **Wait for deployment** (usually 2-5 minutes)
@@ -30,10 +30,10 @@ Files have been pushed to GitHub but Render.com hasn't deployed the changes yet.
 ## 🔍 Verify Deployment Success
 
 After deployment, test these URLs:
-- ✅ `https://nature-care-impex-1.onrender.com/robots.txt`
-- ✅ `https://nature-care-impex-1.onrender.com/favicon.ico`
-- ✅ `https://nature-care-impex-1.onrender.com/.well-known/apple-app-site-association`
-- ✅ `https://nature-care-impex-1.onrender.com/sitemap.xml`
+- ✅ `https://fourways-international-trading-1.onrender.com/robots.txt`
+- ✅ `https://fourways-international-trading-1.onrender.com/favicon.ico`
+- ✅ `https://fourways-international-trading-1.onrender.com/.well-known/apple-app-site-association`
+- ✅ `https://fourways-international-trading-1.onrender.com/sitemap.xml`
 
 ## 📊 Files Already Created & Pushed
 

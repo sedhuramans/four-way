@@ -177,9 +177,9 @@ ENABLE_TEST_ROUTES=true
 ## 📝 **Business Configuration**
 
 ```env
-COMPANY_NAME=Nature Care Impex
-COMPANY_EMAIL=info@naturecareimpex.com
-COMPANY_PHONE=+91-XXXXXXXXXX
+COMPANY_NAME=Fourways International Trading
+COMPANY_EMAIL=sales@fourwaysint.com
+COMPANY_PHONE=+33 6 05 70 56 99
 COMPANY_ADDRESS=Your Business Address Here
 ```
 

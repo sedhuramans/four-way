@@ -11,7 +11,7 @@
 ### Step 1: Go to Render Dashboard
 1. Visit: https://dashboard.render.com
 2. Login with your account
-3. Find service: **nature-care-impex-1**
+3. Find service: **fourways-international-trading-1**
 4. Check deployment status
 
 ### Step 2: Look for Deployment Status
@@ -88,9 +88,9 @@
 - Recent deployment timestamp matches your commit
 
 ### Check 2: Website Functionality
-1. Visit: https://nature-care-impex-1.onrender.com
+1. Visit: https://fourways-international-trading-1.onrender.com
 2. Check main website loads
-3. Test: https://nature-care-impex-1.onrender.com/owner.html
+3. Test: https://fourways-international-trading-1.onrender.com/owner.html
 4. Login: admin/2025
 5. Verify changes are live:
    - No default orders (ORD-001, ORD-002, ORD-003)
@@ -159,9 +159,9 @@ cd server && npm start
 ## 🔗 Important URLs
 
 - **Render Dashboard**: https://dashboard.render.com
-- **Your Service**: nature-care-impex-1
-- **Live Website**: https://nature-care-impex-1.onrender.com
-- **Owner Portal**: https://nature-care-impex-1.onrender.com/owner.html
+- **Your Service**: fourways-international-trading-1
+- **Live Website**: https://fourways-international-trading-1.onrender.com
+- **Owner Portal**: https://fourways-international-trading-1.onrender.com/owner.html
 - **GitHub Repo**: https://github.com/keerthivasan98406-blip/nature_care_impex
 
 ## ⏱️ Expected Timeline

@@ -94,11 +94,11 @@ router.get('/', async (req, res) => {
             filter.category = category;
         }
         
+        // Only apply isActive filter when explicitly requested
         if (active !== undefined) {
             filter.isActive = active === 'true';
-        } else {
-            filter.isActive = true; // Default to active products only
         }
+        // Note: no default isActive filter — show all products in the portal
 
         const products = await Product.find(filter).sort({ id: 1 });
         
@@ -175,6 +175,17 @@ router.post('/', async (req, res) => {
             });
         }
 
+        // Reject base64 image data — images must be hosted URLs
+        const imageFields = ['image', 'image2', 'image3'];
+        for (const field of imageFields) {
+            if (req.body[field] && req.body[field].startsWith('data:')) {
+                return res.status(400).json({
+                    success: false,
+                    message: `Field "${field}" must be a hosted image URL, not a base64 string. Please upload your image to a service like Cloudinary, Imgur, or Google Drive and paste the URL instead.`
+                });
+            }
+        }
+
         // Get the next available ID
         const lastProduct = await Product.findOne().sort({ id: -1 });
         const nextId = lastProduct ? lastProduct.id + 1 : 1;
@@ -208,6 +219,16 @@ router.post('/', async (req, res) => {
 // Update product
 router.put('/:id', async (req, res) => {
     try {
+        const imageFields = ['image', 'image2', 'image3'];
+        for (const field of imageFields) {
+            if (req.body[field] && req.body[field].startsWith('data:')) {
+                return res.status(400).json({
+                    success: false,
+                    message: `Field "${field}" must be a hosted image URL. Please upload your image using the file upload button instead of pasting raw image data.`
+                });
+            }
+        }
+
         const product = await Product.findOneAndUpdate(
             { id: parseInt(req.params.id) },
             req.body,

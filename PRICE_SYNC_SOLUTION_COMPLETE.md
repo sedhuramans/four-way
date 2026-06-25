@@ -52,7 +52,7 @@ const productPrice = product.price || getProductPrice(product.id);
 return `
     <div class="product-card">
         <!-- ... other content ... -->
-        <div class="product-price" style="font-size: 1.2rem; font-weight: bold; color: #D4AF37; margin: 10px 0;">
+        <div class="product-price" style="font-size: 1.2rem; font-weight: bold; color: #1E5BFF; margin: 10px 0;">
             ₹${productPrice.toLocaleString()}
         </div>
         <!-- ... actions ... -->

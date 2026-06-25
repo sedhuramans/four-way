@@ -80,7 +80,7 @@ https://keerthivasan98406-blip.github.io/nature_care_impex
   - [ ] Email
   - [ ] Address
 - [ ] QR code displays
-- [ ] UPI ID shows: naturecareimpex@paytm
+- [ ] UPI ID shows: fourwaysinternational@paytm
 - [ ] "Copy UPI ID" button works
 - [ ] Screenshot upload area visible
 

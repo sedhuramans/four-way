@@ -1,4 +1,26 @@
-/* API Service for Nature Care Impex - MongoDB Integration */
+/* API Service for Fourways International Trading - MongoDB Integration */
+
+// Helper: strip base64 image data before writing to localStorage to avoid quota errors
+function _stripBase64ForStorage(val) {
+    return (typeof val === 'string' && val.startsWith('data:')) ? '[uploaded-image]' : val;
+}
+function _safeSetProducts(products) {
+    const safe = products.map(p => ({
+        ...p,
+        image:  _stripBase64ForStorage(p.image),
+        image2: _stripBase64ForStorage(p.image2),
+        image3: _stripBase64ForStorage(p.image3)
+    }));
+    try {
+        localStorage.setItem('allProducts', JSON.stringify(safe));
+    } catch (e) {
+        console.warn('⚠️ localStorage quota exceeded, clearing product cache and retrying...');
+        localStorage.removeItem('allProducts');
+        localStorage.removeItem('adminProducts');
+        localStorage.removeItem('productUpdateEvent');
+        try { localStorage.setItem('allProducts', JSON.stringify(safe)); } catch (_) {}
+    }
+}
 
 class APIService {
     constructor() {
@@ -97,7 +119,7 @@ class APIService {
                 const newId = Math.max(...products.map(p => parseInt(p.id) || 0), 0) + 1;
                 const newProduct = { ...productData, id: newId };
                 products.push(newProduct);
-                localStorage.setItem('allProducts', JSON.stringify(products));
+                _safeSetProducts(products);
                 
                 return {
                     success: true,
@@ -174,7 +196,7 @@ class APIService {
                 // Update localStorage cache ONLY after successful database save
                 const products = JSON.parse(localStorage.getItem('allProducts') || '[]');
                 products.push(result.data);
-                localStorage.setItem('allProducts', JSON.stringify(products));
+                _safeSetProducts(products);
             }
             
             return result;
@@ -204,7 +226,7 @@ class APIService {
                 const index = products.findIndex(p => p.id == id);
                 if (index !== -1) {
                     products[index] = { ...products[index], ...productData };
-                    localStorage.setItem('allProducts', JSON.stringify(products));
+                    _safeSetProducts(products);
                     
                     return {
                         success: true,
@@ -244,7 +266,7 @@ class APIService {
                 const index = products.findIndex(p => p.id == id);
                 if (index !== -1) {
                     const deletedProduct = products.splice(index, 1)[0];
-                    localStorage.setItem('allProducts', JSON.stringify(products));
+                    _safeSetProducts(products);
                     
                     return {
                         success: true,

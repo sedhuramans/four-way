@@ -2,10 +2,10 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://nature-care-impex-1.onrender.com/sitemap.xml
+Sitemap: https://fourways-international-trading-1.onrender.com/sitemap.xml
 
 # Allow all search engines to crawl the site
-# Nature Care Impex - Premium Cocopeat & Bamboo Products
+# Fourways International Trading - Premium Cocopeat & Bamboo Products
 
 # Disallow admin areas
 Disallow: /owner

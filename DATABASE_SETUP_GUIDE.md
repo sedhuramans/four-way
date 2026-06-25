@@ -154,7 +154,7 @@ Content-Type: application/json
 Make sure these are set in your Render dashboard:
 
 1. Go to: https://dashboard.render.com
-2. Select: nature-care-impex-1
+2. Select: fourways-international-trading-1
 3. Click: Environment tab
 4. Add/Verify:
 
@@ -318,7 +318,7 @@ router.post('/track', async (req, res) => {
 
 ### Render Logs:
 1. Go to: https://dashboard.render.com
-2. Select: nature-care-impex-1
+2. Select: fourways-international-trading-1
 3. Click: Logs
 4. Look for:
    - `✅ MongoDB Atlas Connected`

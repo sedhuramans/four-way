@@ -55,7 +55,7 @@ body {
     margin-bottom: 4px; /* Space between logo and text */
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #FFD700; /* Golden ring */
+    border: 3px solid #1E5BFF; /* Golden ring */
     box-shadow: 0 0 0 2px #000000; /* Black outer ring */
     transition: transform 0.3s ease;
 }
@@ -86,7 +86,7 @@ body {
 }
 
 .nav-links a:hover {
-    color: #D4AF37;
+    color: #1E5BFF;
 }
 
 /* Mobile Menu */
@@ -238,7 +238,7 @@ body {
 }
 
 .btn-primary {
-    background: #D4AF37;
+    background: #1E5BFF;
     color: white;
 }
 
@@ -331,7 +331,7 @@ body {
 }
 
 .product-category {
-    color: #D4AF37;
+    color: #1E5BFF;
     font-size: 0.9rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -356,7 +356,7 @@ body {
 .product-price {
     font-size: 1.2rem;
     font-weight: bold;
-    color: #D4AF37;
+    color: #1E5BFF;
     margin: 10px 0;
 }
 
@@ -495,7 +495,7 @@ body {
 .form-group textarea:focus,
 .form-group select:focus {
     outline: none;
-    border-color: #D4AF37;
+    border-color: #1E5BFF;
 }
 
 /* Footer */
@@ -514,7 +514,7 @@ body {
 
 .footer-section h3 {
     margin-bottom: 1rem;
-    color: #D4AF37;
+    color: #1E5BFF;
 }
 
 .footer-section p,
@@ -526,7 +526,7 @@ body {
 }
 
 .footer-section a:hover {
-    color: #D4AF37;
+    color: #1E5BFF;
 }
 
 .footer-bottom {
@@ -633,7 +633,7 @@ body {
 .price {
     font-size: 1.2rem;
     font-weight: bold;
-    color: #D4AF37;
+    color: #1E5BFF;
 }
 
 .order-form {
@@ -697,7 +697,7 @@ body {
 }
 
 .payment-option.active {
-    border-color: #D4AF37;
+    border-color: #1E5BFF;
 }
 
 .payment-header {
@@ -785,7 +785,7 @@ body {
 }
 
 .upload-area:hover {
-    border-color: #D4AF37;
+    border-color: #1E5BFF;
 }
 
 .upload-content {

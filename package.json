@@ -1,12 +1,12 @@
 {
-  "name": "nature-care-impex-root",
+  "name": "fourways-international-trading-root",
   "version": "1.0.0",
-  "description": "Root proxy for Nature Care Impex",
+  "description": "Root proxy for Fourways International Trading",
   "scripts": {
     "start": "cd server && npm start",
     "install-all": "cd server && npm install",
     "dev": "cd server && npm run dev"
   },
-  "author": "Nature Care Impex",
+  "author": "Fourways International Trading",
   "license": "MIT"
 }

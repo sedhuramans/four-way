@@ -1,4 +1,4 @@
-/* Nature Care Impex - Main Script */
+/* Fourways International Trading - Main Script */
 
 // Buy Now Ordering System - Define functions first
 let currentOrder = null;
@@ -313,7 +313,7 @@ function populatePaymentInfo(orderData) {
         const confirmBtn = document.getElementById('confirm-payment-btn');
         if (confirmBtn) {
             confirmBtn.textContent = '✅ Confirm COD Order';
-            confirmBtn.style.background = 'linear-gradient(135deg, #1A4A30 0%, #2e7d32 100%)';
+            confirmBtn.style.background = 'linear-gradient(135deg, #0A2A6B 0%, #2e7d32 100%)';
         }
         
         const confirmInstruction = document.querySelector('.confirmation-instruction');
@@ -367,7 +367,7 @@ function generatePaymentQR(orderData) {
     console.log('🔄 Generating UPI QR code for amount:', orderData.totalAmount);
     
     const primaryUpiId  = 'naveethulhussain700-4@okaxis';
-    const merchantName  = 'Nature Care Impex';
+    const merchantName  = 'Fourways International Trading';
     const amount        = orderData.totalAmount;
     const transactionNote = `Order-${orderData.orderId}`; // ← was broken before (appended on wrong line)
 
@@ -827,7 +827,29 @@ async function loadProductsData() {
                 }));
                 
                 // Save to localStorage for website use
-                localStorage.setItem('allProducts', JSON.stringify(websiteProducts));
+                // Strip base64 image data to avoid exceeding localStorage quota (~5MB)
+                function stripBase64(val) {
+                    return (typeof val === 'string' && val.startsWith('data:')) ? '[uploaded-image]' : val;
+                }
+                const productsForStorage = websiteProducts.map(p => ({
+                    ...p,
+                    image: stripBase64(p.image),
+                    image2: stripBase64(p.image2),
+                    image3: stripBase64(p.image3)
+                }));
+                try {
+                    localStorage.setItem('allProducts', JSON.stringify(productsForStorage));
+                } catch (storageError) {
+                    console.warn('⚠️ localStorage quota exceeded, clearing cache and retrying...');
+                    localStorage.removeItem('allProducts');
+                    localStorage.removeItem('adminProducts');
+                    localStorage.removeItem('productUpdateEvent');
+                    try {
+                        localStorage.setItem('allProducts', JSON.stringify(productsForStorage));
+                    } catch (e) {
+                        console.warn('⚠️ Cannot write to localStorage even after clearing, continuing without cache');
+                    }
+                }
                 console.log('✅ Products synced to localStorage for website:', websiteProducts.length);
                 return websiteProducts;
             } else {
@@ -1228,10 +1250,15 @@ async function loadProductDetails() {
         return;
     }
 
-    // Generate Size Options
-    const sizeOptions = product.sizes.map(size => `<option value="${size}">${size}</option>`).join('');
+    // Generate Size Options — always just "Standard"
+    const sizeOptions = '<option value="Standard">Standard</option>';
 
-    const detailImages = [product.image, product.image2, product.image3].filter(img => img);
+    const detailImages = [product.image, product.image2, product.image3].filter(img => {
+        if (!img || typeof img !== 'string' || img.length < 4) return false;
+        if (img === '[uploaded-image]') return false;
+        if (img.startsWith('data:')) return false;
+        return true;
+    });
     const imagesHtml = detailImages.map(img => `<img src="${img}" alt="${product.name}" style="width: 100%; border-radius: 8px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">`).join('');
 
     const productPrice = product.price || 0;
@@ -1247,7 +1274,7 @@ async function loadProductDetails() {
                 <p class="description">${product.description}</p>
 
                 <div class="spec-group">
-                    <label for="size-select">Select Size / Variant:</label>
+                    <label for="size-select">Select Variant:</label>
                     <select id="size-select" class="size-select">
                         ${sizeOptions}
                     </select>
@@ -1255,44 +1282,44 @@ async function loadProductDetails() {
 
                 <!-- ★ QUANTITY SELECTOR ★ -->
                 <div class="quantity-section" style="
-                    background: linear-gradient(135deg, #f0f7f2 0%, #e8f5ec 100%);
-                    border: 2px solid #1A4A30;
+                    background: linear-gradient(135deg, #f0f4fc 0%, #e8f5ec 100%);
+                    border: 2px solid #0A2A6B;
                     border-radius: 14px;
                     padding: 20px 22px;
                     margin: 22px 0;
-                    box-shadow: 0 4px 16px rgba(26,74,48,0.10);
+                    box-shadow: 0 4px 16px rgba(10, 42, 107,0.10);
                 ">
                     <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px;">
                         <div>
-                            <div style="font-size:0.78rem; font-weight:700; color:#C9A84C; text-transform:uppercase; letter-spacing:1.2px; margin-bottom:4px;">
+                            <div style="font-size:0.78rem; font-weight:700; color:#5FA8FF; text-transform:uppercase; letter-spacing:1.2px; margin-bottom:4px;">
                                 ★ Required
                             </div>
-                            <label for="detail-quantity" style="font-size:1.15rem; font-weight:800; color:#1A4A30; display:block; margin-bottom:0;">
+                            <label for="detail-quantity" style="font-size:1.15rem; font-weight:800; color:#0A2A6B; display:block; margin-bottom:0;">
                                 Quantity *
                             </label>
                         </div>
-                        <div style="display:flex; align-items:center; gap:0; border:2px solid #1A4A30; border-radius:10px; overflow:hidden; background:#fff;">
+                        <div style="display:flex; align-items:center; gap:0; border:2px solid #0A2A6B; border-radius:10px; overflow:hidden; background:#fff;">
                             <button type="button" onclick="changeDetailQty(-1, 0)" style="
-                                width:44px; height:44px; background:#1A4A30; color:#fff;
+                                width:44px; height:44px; background:#0A2A6B; color:#fff;
                                 border:none; font-size:1.4rem; cursor:pointer;
                                 display:flex; align-items:center; justify-content:center;
                                 transition:background 0.2s; font-weight:700;
-                            " onmouseover="this.style.background='#C9A84C'" onmouseout="this.style.background='#1A4A30'">−</button>
+                            " onmouseover="this.style.background='#5FA8FF'" onmouseout="this.style.background='#0A2A6B'">−</button>
                             <input type="number" id="detail-quantity" value="1" min="1" max="9999"
                                 style="
                                     width:70px; height:44px; text-align:center;
                                     border:none; outline:none; font-size:1.2rem;
-                                    font-weight:800; color:#1A4A30;
+                                    font-weight:800; color:#0A2A6B;
                                 "
                                 oninput="updateDetailTotal(0)"
                                 onchange="updateDetailTotal(0)"
                             >
                             <button type="button" onclick="changeDetailQty(1, 0)" style="
-                                width:44px; height:44px; background:#1A4A30; color:#fff;
+                                width:44px; height:44px; background:#0A2A6B; color:#fff;
                                 border:none; font-size:1.4rem; cursor:pointer;
                                 display:flex; align-items:center; justify-content:center;
                                 transition:background 0.2s; font-weight:700;
-                            " onmouseover="this.style.background='#C9A84C'" onmouseout="this.style.background='#1A4A30'">+</button>
+                            " onmouseover="this.style.background='#5FA8FF'" onmouseout="this.style.background='#0A2A6B'">+</button>
                         </div>
                     </div>
                 </div>
@@ -1342,11 +1369,11 @@ function updateDetailTotal(unitPrice) {
 
 // WhatsApp Enquiry Function
 function sendWhatsAppEnquiry(productName, productId) {
-    const phoneNumber = "919345540373";
+    const phoneNumber = "33605705699";
     const qtyInput = document.getElementById('detail-quantity');
     const quantity = qtyInput ? qtyInput.value : 1;
     
-    const message = `Hello Nature Care Impex, I'm interested in the product: ${productName} (ID: ${productId}). 
+    const message = `Hello Fourways International Trading, I'm interested in the product: ${productName} (ID: ${productId}). 
 Quantity: ${quantity}
 Could you please provide more details?`;
     
@@ -1570,7 +1597,7 @@ function showPaymentModal() {
     document.getElementById('payment-product').textContent = currentOrder.product.name;
     
     // Generate QR code (using a QR code service)
-    const qrData = `upi://pay?pa=naturecareimpex@paytm&pn=Nature Care Impex&am=${currentOrder.customerDetails.total}&cu=INR&tn=Order ${currentOrder.orderId}`;
+    const qrData = `upi://pay?pa=fourwaysinternational@paytm&pn=Fourways International Trading&am=${currentOrder.customerDetails.total}&cu=INR&tn=Order ${currentOrder.orderId}`;
     document.getElementById('payment-qr').src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(qrData)}`;
     
     modal.style.display = 'block';
@@ -1638,7 +1665,7 @@ function createPaymentModal() {
                                     </div>
                                 </div>
                                 <div class="upi-id">
-                                    <p><strong>UPI ID:</strong> naturecareimpex@paytm</p>
+                                    <p><strong>UPI ID:</strong> fourwaysinternational@paytm</p>
                                 </div>
                             </div>
                         </div>
@@ -1687,13 +1714,13 @@ function payWithApp(app) {
     let url = '';
     switch(app) {
         case 'paytm':
-            url = `paytmmp://pay?pa=naturecareimpex@paytm&pn=Nature Care Impex&am=${amount}&cu=INR&tn=Order ${orderId}`;
+            url = `paytmmp://pay?pa=fourwaysinternational@paytm&pn=Fourways International Trading&am=${amount}&cu=INR&tn=Order ${orderId}`;
             break;
         case 'gpay':
-            url = `tez://upi/pay?pa=naturecareimpex@paytm&pn=Nature Care Impex&am=${amount}&cu=INR&tn=Order ${orderId}`;
+            url = `tez://upi/pay?pa=fourwaysinternational@paytm&pn=Fourways International Trading&am=${amount}&cu=INR&tn=Order ${orderId}`;
             break;
         case 'phonepe':
-            url = `phonepe://pay?pa=naturecareimpex@paytm&pn=Nature Care Impex&am=${amount}&cu=INR&tn=Order ${orderId}`;
+            url = `phonepe://pay?pa=fourwaysinternational@paytm&pn=Fourways International Trading&am=${amount}&cu=INR&tn=Order ${orderId}`;
             break;
     }
     
@@ -1807,39 +1834,77 @@ function createProductCard(product) {
     console.log('Creating product card for:', product.name, 'ID:', product.id);
     const productPrice = product.price || getProductPrice(product.id);
     
-    // Check for multiple images (up to 3)
-    const images = [product.image, product.image2, product.image3].filter(img => img);
-    
-    // Create the image layout with a carousel if there are multiple images
-    const imageContent = images.length > 1 
-        ? `<div id="carouselExampleControls-${product.id}" class="carousel slide" style="position: relative; overflow: hidden; width: 100%; height: 100%;">
-                <div class="carousel-inner" id="carousel-inner-${product.id}" style="display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none; width: 100%; height: 100%; scroll-behavior: smooth;">
-                    ${images.map((img, index) => `
-                        <div class="carousel-item ${index === 0 ? 'active' : ''}" style="flex: 0 0 100%; scroll-snap-align: start; width: 100%; height: 100%;">
-                            <img class="d-block w-100" src="${img}" alt="Slide ${index + 1}" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                        </div>
-                    `).join('')}
-                </div>
-                <a class="carousel-control-prev" href="javascript:void(0)" role="button" onclick="event.preventDefault(); event.stopPropagation(); document.getElementById('carousel-inner-${product.id}').scrollBy({left: -document.getElementById('carousel-inner-${product.id}').offsetWidth, behavior: 'smooth'});" style="position: absolute; left: 0; top: 0; bottom: 0; width: 15%; display: flex; align-items: center; justify-content: center; color: #fff; text-align: center; opacity: 0.5; transition: opacity .15s ease; background: none; border: none; cursor: pointer; text-decoration: none;">
-                    <span class="carousel-control-prev-icon" aria-hidden="true" style="display: inline-block; width: 20px; height: 20px; background: transparent no-repeat center center; background-size: 100% 100%; background-image: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 fill=%27%23fff%27 viewBox=%270 0 8 8%27%3e%3cpath d=%27M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z%27/%3e%3c/svg%3e');"></span>
-                </a>
-                <a class="carousel-control-next" href="javascript:void(0)" role="button" onclick="event.preventDefault(); event.stopPropagation(); document.getElementById('carousel-inner-${product.id}').scrollBy({left: document.getElementById('carousel-inner-${product.id}').offsetWidth, behavior: 'smooth'});" style="position: absolute; right: 0; top: 0; bottom: 0; width: 15%; display: flex; align-items: center; justify-content: center; color: #fff; text-align: center; opacity: 0.5; transition: opacity .15s ease; background: none; border: none; cursor: pointer; text-decoration: none;">
-                    <span class="carousel-control-next-icon" aria-hidden="true" style="display: inline-block; width: 20px; height: 20px; background: transparent no-repeat center center; background-size: 100% 100%; background-image: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 fill=%27%23fff%27 viewBox=%270 0 8 8%27%3e%3cpath d=%27M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z%27/%3e%3c/svg%3e');"></span>
-                </a>
+    // Collect valid images — accept http URLs and local /uploads/ paths
+    const images = [product.image, product.image2, product.image3].filter(img => {
+        if (!img || typeof img !== 'string' || img.length < 4) return false;
+        if (img === '[uploaded-image]') return false;
+        if (img.startsWith('data:')) return false;
+        return true; // accepts http:// and /uploads/
+    });
+    const pid = product.id;
+
+    let imageContent;
+    if (images.length > 1) {
+        const slides = images.map((img, i) => `
+            <div class="pc-slide" data-index="${i}" style="
+                flex: 0 0 100%; width: 100%; height: 100%;
+                display: flex; align-items: center; justify-content: center; overflow: hidden;
+            ">
+                <img src="${img}" alt="${product.name} image ${i + 1}" style="width:100%;height:100%;object-fit:cover;display:block;">
             </div>
-            <style>
-                #carousel-inner-${product.id}::-webkit-scrollbar { display: none; }
-                #carouselExampleControls-${product.id} .carousel-control-prev:hover, 
-                #carouselExampleControls-${product.id} .carousel-control-next:hover { 
-                    opacity: 0.9 !important; 
-                    background: rgba(0,0,0,0.1);
-                }
-            </style>`
-        : `<img src="${product.image}" alt="${product.name}" class="product-image" style="display: block; width: 100%; height: 100%; object-fit: cover;">`;
+        `).join('');
+
+        const dots = images.map((_, i) => `
+            <span class="pc-dot ${i === 0 ? 'active' : ''}" data-slide="${i}" onclick="event.stopPropagation();pcGoTo('${pid}',${i})" style="
+                display:inline-block;width:8px;height:8px;border-radius:50%;
+                background:${i === 0 ? '#fff' : 'rgba(255,255,255,0.45)'};
+                margin:0 3px;cursor:pointer;transition:background .2s;
+            "></span>
+        `).join('');
+
+        imageContent = `
+            <div class="pc-carousel" id="pc-${pid}" data-current="0" style="position:relative;width:100%;height:100%;overflow:hidden;">
+                <div class="pc-track" id="pc-track-${pid}" style="
+                    display:flex;height:100%;
+                    transition:transform .35s ease;
+                    will-change:transform;
+                ">
+                    ${slides}
+                </div>
+
+                <!-- Prev button -->
+                <button onclick="event.preventDefault();event.stopPropagation();pcPrev('${pid}')" style="
+                    position:absolute;left:0;top:0;bottom:0;width:36px;
+                    background:rgba(0,0,0,0.25);border:none;cursor:pointer;
+                    color:#fff;font-size:18px;display:flex;align-items:center;
+                    justify-content:center;opacity:0;transition:opacity .2s;z-index:2;
+                " class="pc-btn pc-btn-prev" aria-label="Previous image">&#8249;</button>
+
+                <!-- Next button -->
+                <button onclick="event.preventDefault();event.stopPropagation();pcNext('${pid}')" style="
+                    position:absolute;right:0;top:0;bottom:0;width:36px;
+                    background:rgba(0,0,0,0.25);border:none;cursor:pointer;
+                    color:#fff;font-size:18px;display:flex;align-items:center;
+                    justify-content:center;opacity:0;transition:opacity .2s;z-index:2;
+                " class="pc-btn pc-btn-next" aria-label="Next image">&#8250;</button>
+
+                <!-- Dots -->
+                <div style="
+                    position:absolute;bottom:8px;left:0;right:0;
+                    display:flex;justify-content:center;align-items:center;z-index:2;
+                " id="pc-dots-${pid}">
+                    ${dots}
+                </div>
+            </div>`;
+    } else {
+        imageContent = `<img src="${images[0] || ''}" alt="${product.name}" class="product-image" style="display:block;width:100%;height:100%;object-fit:cover;">`;
+    }
 
     return `
-        <div class="product-card">
-            <div class="card-image-wrapper" style="cursor: pointer; padding: 0;">
+        <div class="product-card"
+             onmouseenter="pcShowBtns('${pid}')"
+             onmouseleave="pcHideBtns('${pid}')">
+            <div class="card-image-wrapper" style="cursor:pointer;padding:0;overflow:hidden;">
                 ${imageContent}
             </div>
             <div class="product-info">
@@ -1854,6 +1919,54 @@ function createProductCard(product) {
         </div>
     `;
 }
+
+/* ── Product Card Carousel helpers (global) ── */
+function pcGoTo(pid, index) {
+    const carousel = document.getElementById('pc-' + pid);
+    const track    = document.getElementById('pc-track-' + pid);
+    const dotsEl   = document.getElementById('pc-dots-' + pid);
+    if (!carousel || !track) return;
+
+    const total = track.children.length;
+    index = ((index % total) + total) % total;   // wrap around
+    carousel.dataset.current = index;
+    track.style.transform = `translateX(-${index * 100}%)`;
+
+    // Update dots
+    if (dotsEl) {
+        [...dotsEl.querySelectorAll('.pc-dot')].forEach((d, i) => {
+            d.style.background = i === index ? '#fff' : 'rgba(255,255,255,0.45)';
+            d.classList.toggle('active', i === index);
+        });
+    }
+}
+function pcNext(pid) {
+    const carousel = document.getElementById('pc-' + pid);
+    if (!carousel) return;
+    pcGoTo(pid, parseInt(carousel.dataset.current || 0) + 1);
+}
+function pcPrev(pid) {
+    const carousel = document.getElementById('pc-' + pid);
+    if (!carousel) return;
+    pcGoTo(pid, parseInt(carousel.dataset.current || 0) - 1);
+}
+function pcShowBtns(pid) {
+    const el = document.getElementById('pc-' + pid);
+    if (!el) return;
+    el.querySelectorAll('.pc-btn').forEach(b => b.style.opacity = '1');
+}
+function pcHideBtns(pid) {
+    const el = document.getElementById('pc-' + pid);
+    if (!el) return;
+    el.querySelectorAll('.pc-btn').forEach(b => b.style.opacity = '0');
+}
+
+// Expose carousel helpers globally
+window.pcGoTo = pcGoTo;
+window.pcNext = pcNext;
+window.pcPrev = pcPrev;
+window.pcShowBtns = pcShowBtns;
+window.pcHideBtns = pcHideBtns;
 
 // Close modals when clicking outside
 window.onclick = function(event) {
@@ -1877,7 +1990,7 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-console.log('Nature Care Impex script loaded successfully!');
+console.log('Fourways International Trading script loaded successfully!');
 // Function to clear cached product data and reload fresh
 function clearProductCache() {
     localStorage.removeItem('allProducts');

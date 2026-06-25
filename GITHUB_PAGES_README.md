@@ -1,6 +1,6 @@
-# 🌱 Nature Care Impex - GitHub Pages Demo
+# 🌱 Fourways International Trading - GitHub Pages Demo
 
-This is a **static demo version** of the Nature Care Impex e-commerce platform, optimized for GitHub Pages.
+This is a **static demo version** of the Fourways International Trading e-commerce platform, optimized for GitHub Pages.
 
 ## 🌐 Live Demo
 Visit the live demo: `https://yourusername.github.io/repository-name`
@@ -25,7 +25,7 @@ Visit the live demo: `https://yourusername.github.io/repository-name`
 
 ## 🚀 Full Version Features
 
-The complete Nature Care Impex platform includes:
+The complete Fourways International Trading platform includes:
 
 ### 🛒 **E-Commerce System**
 - Real MongoDB database integration
@@ -93,8 +93,8 @@ The complete Nature Care Impex platform includes:
 
 Interested in the complete e-commerce platform? Contact us:
 
-- **Email**: naturecareimpex@gmail.com
-- **Phone**: 9345540373
+- **Email**: sales@fourwaysint.com
+- **Phone**: +33 6 05 70 56 99
 - **Address**: Shop 11A bajar street, kottakuppam, vanur taluk, villupuram district, tamilnadu, 605104
 
 ## 🎯 Full Version Deployment
@@ -118,6 +118,6 @@ The complete system can be deployed on:
 
 ---
 
-**🌱 Nature Care Impex - Sustainable Solutions for a Better Tomorrow**
+**🌱 Fourways International Trading - Sustainable Solutions for a Better Tomorrow**
 
 *This demo showcases our web development capabilities. Contact us for custom e-commerce solutions!*

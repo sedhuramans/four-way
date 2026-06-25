@@ -80,7 +80,7 @@ Your files are already organized exactly as you requested! Here's what you need 
 Your structure is exactly what you wanted:
 
 ```
-nature-care-impex/
+fourways-international-trading/
 ├── 📁 Main Website Files (Root)
 │   ├── index.html
 │   ├── products.html
@@ -119,7 +119,7 @@ git add css/ js/ assets/ server/
 git add README.md .gitignore
 
 # Commit
-git commit -m "Nature Care Impex - Complete Website"
+git commit -m "Fourways International Trading - Complete Website"
 
 # Push to GitHub
 git push origin main

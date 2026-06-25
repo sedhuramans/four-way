@@ -117,7 +117,7 @@ Or if no cached orders:
 4. Click "Clear data"
 
 ### Step 2: Test Owner Portal
-1. Go to: https://nature-care-impex-1.onrender.com/owner.html
+1. Go to: https://fourways-international-trading-1.onrender.com/owner.html
 2. Login: admin / 2025
 3. Go to Order Management
 4. **Expected**: No ORD-001, ORD-002, ORD-003

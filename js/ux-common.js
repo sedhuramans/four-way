@@ -1,5 +1,5 @@
 /**
- * ux-common.js — Shared UX enhancements for Nature Care Impex
+ * ux-common.js — Shared UX enhancements for Fourways International Trading
  * Injects: WhatsApp FAB, Scroll-to-Top, Navbar scroll shadow
  */
 (function () {
@@ -7,7 +7,7 @@
 
     // ── WhatsApp FAB ────────────────────────────────────────────
     const wa = document.createElement('a');
-    wa.href = 'https://wa.me/919345540373?text=Hello%20Nature%20Care%20Impex%2C%20I%27m%20interested%20in%20your%20products!';
+    wa.href = 'https://wa.me/33605705699?text=Hello%20Fourways%20International%20Trading%2C%20I%27m%20interested%20in%20your%20products!';
     wa.className = 'whatsapp-fab';
     wa.target = '_blank';
     wa.rel = 'noopener noreferrer';

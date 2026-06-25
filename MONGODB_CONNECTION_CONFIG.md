@@ -56,8 +56,8 @@ Should show:
 ```
 
 ### Test Production APIs:
-- `https://naturecareimpex.leonux.online/api/health`
-- `https://naturecareimpex.leonux.online/api/products`
+- `https://fourwaysinternational.leonux.online/api/health`
+- `https://fourwaysinternational.leonux.online/api/products`
 
 Should return JSON data instead of 503 errors.
 

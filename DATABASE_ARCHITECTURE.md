@@ -2,7 +2,7 @@
 
 ## 🌐 Real-Time Multi-Device System
 
-Your Nature Care Impex platform is now configured as a **real-time, multi-device system** where all data is stored in MongoDB Atlas cloud database, accessible from anywhere.
+Your Fourways International Trading platform is now configured as a **real-time, multi-device system** where all data is stored in MongoDB Atlas cloud database, accessible from anywhere.
 
 ## 📊 Data Flow Architecture
 
@@ -169,17 +169,17 @@ Customer (Offline) → localStorage → (Goes Online) → MongoDB
 ## 📱 Testing Multi-Device Access
 
 ### Test 1: Place Order on Device A
-1. Open https://nature-care-impex-1.onrender.com on Phone
+1. Open https://fourways-international-trading-1.onrender.com on Phone
 2. Place an order
 3. Note the Order ID
 
 ### Test 2: Track Order on Device B
-1. Open https://nature-care-impex-1.onrender.com/track-order.html on Laptop
+1. Open https://fourways-international-trading-1.onrender.com/track-order.html on Laptop
 2. Enter the Order ID from Device A
 3. ✅ Should find the order (from database)
 
 ### Test 3: View in Owner Portal on Device C
-1. Open https://nature-care-impex-1.onrender.com/owner.html on Tablet
+1. Open https://fourways-international-trading-1.onrender.com/owner.html on Tablet
 2. Login (admin/2025)
 3. ✅ Should see the order (from database)
 
@@ -282,7 +282,7 @@ if (isLocalhost) {
 - ✅ Real-time sync active
 
 ### URLs:
-- **Production**: https://nature-care-impex-1.onrender.com
+- **Production**: https://fourways-international-trading-1.onrender.com
 - **Database**: MongoDB Atlas (Cloud)
 - **Backup**: GitHub (Code)
 

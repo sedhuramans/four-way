@@ -14,7 +14,7 @@ Since manual environment variable fixes haven't worked, we need to recreate the 
 
 ### Step 1: Delete Current Service
 1. Go to: https://dashboard.render.com
-2. Find: `nature-care-impex-1-7yri`
+2. Find: `fourways-international-trading-1-7yri`
 3. Click on service name
 4. Go to **"Settings"** tab
 5. Scroll to bottom
@@ -26,7 +26,7 @@ Since manual environment variable fixes haven't worked, we need to recreate the 
 2. Select **"Web Service"**
 3. Connect **GitHub repository**: `nature_care_impex`
 4. Configure:
-   - **Name**: `nature-care-impex`
+   - **Name**: `fourways-international-trading`
    - **Environment**: `Node`
    - **Build Command**: `cd server && npm install`
    - **Start Command**: `cd server && npm start`
