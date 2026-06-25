@@ -1168,24 +1168,35 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .lux-loader.hidden { opacity: 0; visibility: hidden; }
 
-/* Logo mark — circular gold ring */
+/* Actual logo image */
+.lux-loader__logo {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(212,180,127,0.5);
+  margin-bottom: 1.6rem;
+  animation: loaderPulse 2s ease-in-out infinite;
+  box-shadow: 0 0 0 0 rgba(212,180,127,0.3);
+}
+@keyframes loaderPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212,180,127,0.25); }
+  50%       { box-shadow: 0 0 0 12px rgba(212,180,127,0); }
+}
+
+/* Emblem (fallback SVG — kept for safety) */
 .lux-loader__emblem {
   width: 64px; height: 64px;
   border: 1px solid rgba(201,168,108,0.5);
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   margin-bottom: 1.6rem;
-  animation: loaderPulse 2s ease-in-out infinite;
 }
 .lux-loader__emblem svg {
   width: 28px; height: 28px;
   stroke: var(--lux-champagne);
   fill: none;
   stroke-width: 1.2;
-}
-@keyframes loaderPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(212,180,127,0.3); }
-  50%       { box-shadow: 0 0 0 10px rgba(212,180,127,0); }
 }
 
 .lux-loader__wordmark {
@@ -1219,6 +1230,19 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 @keyframes loadProgress {
   to { width: 100%; }
+}
+
+/* ── Nav logo slogan ──────────────────────────────────────── */
+.lux-nav__logo-slogan {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--lux-champagne);
+  margin-top: 1px;
+  white-space: nowrap;
 }
 
 /* ── Breadcrumb ───────────────────────────────────────────── */
