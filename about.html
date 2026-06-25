@@ -106,11 +106,11 @@
       </div>
     </a>
     <ul class="lux-nav__links" id="luxNavLinks" role="menubar">
-      <li role="none"><a href="index.html"    class="lux-nav__link" role="menuitem">Home</a></li>
-      <li role="none"><a href="products.html" class="lux-nav__link" role="menuitem">Products</a></li>
-      <li role="none"><a href="gallery.html"  class="lux-nav__link" role="menuitem">Gallery</a></li>
-      <li role="none"><a href="about.html"    class="lux-nav__link active" role="menuitem">Our Story</a></li>
-      <li role="none"><a href="contact.html"  class="lux-nav__link" role="menuitem">Contact</a></li>
+      <li role="none"><a href="index.html"    class="lux-nav__link" role="menuitem" data-i18n="nav_home">Home</a></li>
+      <li role="none"><a href="products.html" class="lux-nav__link" role="menuitem" data-i18n="nav_products">Products</a></li>
+      <li role="none"><a href="gallery.html"  class="lux-nav__link" role="menuitem" data-i18n="nav_gallery">Gallery</a></li>
+      <li role="none"><a href="about.html"    class="lux-nav__link active" role="menuitem" data-i18n="nav_story">Our Story</a></li>
+      <li role="none"><a href="contact.html"  class="lux-nav__link" role="menuitem" data-i18n="nav_contact">Contact</a></li>
     </ul>
     <div class="lux-nav__actions">
       <button class="lux-nav__lang" id="langSwitcher" onclick="i18n && i18n.toggleLanguage()" type="button" aria-label="Switch language">EN / FR</button>
@@ -144,7 +144,7 @@
     if(hL&&!ovl.querySelector('.lux-nav__lang--mobile')){
       var b=document.createElement('button');
       b.className='lux-nav__lang--mobile';b.type='button';b.setAttribute('aria-label','Switch language');b.textContent=hL.textContent||'EN / FR';
-      b.addEventListener('click',function(){if(typeof i18n!=='undefined'){i18n.toggleLanguage();var lg=i18n.getCurrentLang?i18n.getCurrentLang():'en';var lb=lg==='fr'?'FR / EN':'EN / FR';b.textContent=lb;hL.textContent=lb;}});
+      b.addEventListener('click',function(){if(typeof i18n!=='undefined'){i18n.toggleLanguage();var lg=i18n.getCurrentLang?i18n.getCurrentLang():'en';var lb=lg==='fr'?'English':'Français';b.textContent=lb;hL.textContent=lb;}});
       ovl.appendChild(b);
     }
   });
@@ -157,12 +157,12 @@
   <div class="lux-container">
     <div class="lux-page-hero__content lux-reveal">
       <nav class="lux-breadcrumb" aria-label="Breadcrumb">
-        <a href="index.html">Home</a>
+        <a href="index.html" data-i18n="bc_home">Home</a>
         <span class="lux-breadcrumb__sep" aria-hidden="true">›</span>
-        <span>Our Story</span>
+        <span data-i18n="about_bc">Our Story</span>
       </nav>
-      <span class="lux-eyebrow">Heritage &amp; Vision</span>
-      <h1 class="lux-heading lux-heading--lg">
+      <span class="lux-eyebrow" data-i18n="about_hero_eyebrow">Heritage &amp; Vision</span>
+      <h1 class="lux-heading lux-heading--lg" data-i18n="about_hero_h1">
         Heritage, Passion,<br><em>and French Craftsmanship</em>
       </h1>
     </div>
@@ -178,13 +178,10 @@
           src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=900&q=80"
           alt="Coconut Farm — Fourways International Trading" loading="lazy">
         <div class="lux-about__img-accent" aria-hidden="true"></div>
-        <div class="lux-about__badge" aria-label="5 years of excellence">
-          <strong>5+</strong>
-          <span>Years of<br>Excellence</span>
-        </div>
+
       </div>
       <div class="lux-reveal lux-reveal--right">
-        <span class="lux-eyebrow">Our Identity</span>
+        <span class="lux-eyebrow" data-i18n="about_identity_eyebrow">Our Identity</span>
         <h2 class="lux-heading lux-heading--lg" id="who-heading" data-i18n="about_who_h1">
           Who We Are
         </h2>
@@ -195,20 +192,7 @@
         <p class="lux-lead" style="margin-top:1rem;" data-i18n="about_who_p2">
           Our team consists of passionate professionals who bring expertise, creativity, and dedication to every project. We believe in long-term relationships, transparency, and continuous improvement — ensuring every client experiences trust and value in every interaction.
         </p>
-        <div class="lux-about__stats" style="margin-top:2rem;">
-          <div>
-            <span class="lux-stat__num">5000+</span>
-            <span class="lux-stat__label">Happy Clients</span>
-          </div>
-          <div>
-            <span class="lux-stat__num">20+</span>
-            <span class="lux-stat__label">Products</span>
-          </div>
-          <div>
-            <span class="lux-stat__num">15+</span>
-            <span class="lux-stat__label">Countries</span>
-          </div>
-        </div>
+
       </div>
     </div>
   </div>
@@ -221,7 +205,7 @@
   <div class="lux-container">
     <div class="lux-about__grid">
       <div class="lux-reveal lux-reveal--left">
-        <span class="lux-eyebrow">Our Values</span>
+        <span class="lux-eyebrow" data-i18n="about_values_eyebrow">Our Values</span>
         <h2 class="lux-heading lux-heading--lg" id="sust-heading" data-i18n="about_sust_h2">
           Our Sustainability<br>Promise
         </h2>
@@ -233,8 +217,8 @@
           Every product you buy supports eco-friendly farming practices and helps reduce your carbon footprint. We believe in transparency, quality, and a greener future for generations to come.
         </p>
         <div class="lux-btn-group" style="margin-top:2.5rem;">
-          <a href="products.html" class="lux-btn lux-btn--primary"><span>Explore Products</span></a>
-          <a href="contact.html"  class="lux-btn lux-btn--ghost"><span>Get a Quote</span></a>
+          <a href="products.html" class="lux-btn lux-btn--primary"><span data-i18n="about_btn_products">Explore Products</span></a>
+          <a href="contact.html"  class="lux-btn lux-btn--ghost"><span data-i18n="about_btn_quote">Get a Quote</span></a>
         </div>
       </div>
       <div class="lux-reveal lux-reveal--right">
@@ -246,57 +230,7 @@
   </div>
 </section>
 
-<!-- Certifications -->
-<section class="lux-section lux-about" aria-labelledby="certs-heading">
-  <div class="lux-container">
-    <div class="text-center lux-reveal" style="margin-bottom:1rem;">
-      <span class="lux-eyebrow">Verified Excellence</span>
-      <h2 class="lux-heading lux-heading--lg" id="certs-heading" data-i18n="about_cert_h2">
-        Our Certifications &amp; Compliance
-      </h2>
-      <div class="lux-divider"></div>
-      <p class="lux-lead" style="max-width:560px;margin:0 auto;">
-        Internationally recognised certifications that validate our unwavering commitment to quality, safety, and ethical practice.
-      </p>
-    </div>
-    <div class="lux-certs-grid">
-      <div class="lux-cert-card lux-reveal lux-reveal--delay-1" onclick="openCertModal('https://res.cloudinary.com/dy5kyfcw4/image/upload/v1777617657/IN62746A_NATURE_CARE_IMPEX_9.._page-0001_blhw4w.jpg','ISO 9001:2015')" role="button" tabindex="0" aria-label="View ISO 9001:2015 certificate">
-        <img src="https://res.cloudinary.com/dy5kyfcw4/image/upload/v1777617657/IN62746A_NATURE_CARE_IMPEX_9.._page-0001_blhw4w.jpg"
-          alt="ISO 9001:2015 Quality Management Certificate" loading="lazy"
-          onerror="this.src='https://placehold.co/400x565/F5F1E8/8B6914?text=ISO+9001'">
-        <h3 class="lux-cert-card__title" data-i18n="cert1_h3">ISO 9001:2015</h3>
-        <p class="lux-cert-card__sub" data-i18n="cert1_p">Quality Management System Standard</p>
-      </div>
-      <div class="lux-cert-card lux-reveal lux-reveal--delay-2" onclick="openCertModal('https://res.cloudinary.com/dy5kyfcw4/image/upload/v1777617667/IN62747D_NATURE_CARE_IMPEX_2.._page-0001_t3wnwv.jpg','ISO 22000:2018')" role="button" tabindex="0" aria-label="View ISO 22000:2018 certificate">
-        <img src="https://res.cloudinary.com/dy5kyfcw4/image/upload/v1777617667/IN62747D_NATURE_CARE_IMPEX_2.._page-0001_t3wnwv.jpg"
-          alt="ISO 22000:2018 Food Safety Certificate" loading="lazy"
-          onerror="this.src='https://placehold.co/400x565/F5F1E8/8B6914?text=ISO+22000'">
-        <h3 class="lux-cert-card__title" data-i18n="cert2_h3">ISO 22000:2018</h3>
-        <p class="lux-cert-card__sub" data-i18n="cert2_p">Food Safety Management System</p>
-      </div>
-      <div class="lux-cert-card lux-reveal lux-reveal--delay-3" onclick="openCertModal('https://res.cloudinary.com/dy5kyfcw4/image/upload/v1777617992/NATURE-CARE-IMPEX_page-0001_qwzuo3.jpg','VCT Certificate')" role="button" tabindex="0" aria-label="View Verified Certificate of Trust">
-        <img src="https://res.cloudinary.com/dy5kyfcw4/image/upload/v1777617992/NATURE-CARE-IMPEX_page-0001_qwzuo3.jpg"
-          alt="Verified Certificate of Trust" loading="lazy"
-          onerror="this.src='https://placehold.co/400x565/F5F1E8/8B6914?text=VCT+Trust'">
-        <h3 class="lux-cert-card__title" data-i18n="cert3_h3">Certificate of Trust</h3>
-        <p class="lux-cert-card__sub" data-i18n="cert3_p">Ethical Business Practices &amp; Reliability</p>
-      </div>
-      <div class="lux-cert-card lux-reveal lux-reveal--delay-4" onclick="openCertModal('https://res.cloudinary.com/dy5kyfcw4/image/upload/v1777868901/Untitled_page-0001_sq4ixd.jpg','Official Certification')" role="button" tabindex="0" aria-label="View Official Certification">
-        <img src="https://res.cloudinary.com/dy5kyfcw4/image/upload/v1777868901/Untitled_page-0001_sq4ixd.jpg"
-          alt="Official Certification Document" loading="lazy"
-          onerror="this.src='https://placehold.co/400x565/F5F1E8/8B6914?text=Official+Cert'">
-        <h3 class="lux-cert-card__title" data-i18n="cert4_h3">Official Certification</h3>
-        <p class="lux-cert-card__sub" data-i18n="cert4_p">Registration &amp; Compliance Document</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- Cert Modal -->
-<div class="lux-lightbox" id="certModal" role="dialog" aria-modal="true" aria-label="Certificate viewer">
-  <button class="lux-lightbox__close" onclick="closeCertModal()" aria-label="Close">&times;</button>
-  <img class="lux-lightbox__img" id="certModalImg" src="" alt="">
-</div>
 
 <!-- Footer -->
 <footer class="lux-footer" role="contentinfo">
@@ -304,7 +238,7 @@
     <div class="lux-footer__grid">
       <div>
         <p class="lux-footer__brand-name">Fourways International Trading</p>
-        <p class="lux-footer__brand-tagline">Leading exporter of premium cocopeat, bamboo &amp; eco-friendly natural products. Rooted in Marseille, trusted worldwide.</p>
+        <p class="lux-footer__brand-tagline" data-i18n="footer_tagline">Leading exporter of premium cocopeat, bamboo &amp; eco-friendly natural products. Rooted in Marseille, trusted worldwide.</p>
         <div class="lux-footer__social">
           <a href="#" class="lux-footer__social-link" aria-label="Facebook">f</a>
           <a href="#" class="lux-footer__social-link" aria-label="Instagram">in</a>
@@ -312,13 +246,13 @@
         </div>
       </div>
       <div>
-        <p class="lux-footer__col-title">Navigation</p>
+        <p class="lux-footer__col-title" data-i18n="footer_quick">Navigation</p>
         <ul class="lux-footer__links">
-          <li><a href="index.html"    class="lux-footer__link">Home</a></li>
-          <li><a href="products.html" class="lux-footer__link">Products</a></li>
-          <li><a href="gallery.html"  class="lux-footer__link">Gallery</a></li>
-          <li><a href="about.html"    class="lux-footer__link">Our Story</a></li>
-          <li><a href="contact.html"  class="lux-footer__link">Contact</a></li>
+          <li><a href="index.html"    class="lux-footer__link" data-i18n="nav_home">Home</a></li>
+          <li><a href="products.html" class="lux-footer__link" data-i18n="nav_products">Products</a></li>
+          <li><a href="gallery.html"  class="lux-footer__link" data-i18n="nav_gallery">Gallery</a></li>
+          <li><a href="about.html"    class="lux-footer__link" data-i18n="nav_story">Our Story</a></li>
+          <li><a href="contact.html"  class="lux-footer__link" data-i18n="nav_contact">Contact</a></li>
         </ul>
       </div>
       <div>
@@ -330,7 +264,7 @@
         </ul>
       </div>
       <div>
-        <p class="lux-footer__col-title">Contact</p>
+        <p class="lux-footer__col-title" data-i18n="footer_contact">Contact</p>
         <ul class="lux-footer__links">
           <li><a href="mailto:sales@fourwaysint.com" class="lux-footer__link">sales@fourwaysint.com</a></li>
           <li><a href="tel:+33605705699"             class="lux-footer__link">+33 6 05 70 56 99</a></li>
@@ -339,8 +273,8 @@
       </div>
     </div>
     <div class="lux-footer__bottom">
-      <p class="lux-footer__copy">&copy; 2025 Fourways International Trading. All rights reserved.</p>
-      <a href="owner.html" class="lux-footer__admin">Admin Portal</a>
+      <p class="lux-footer__copy" data-i18n="footer_copyright">&copy; 2025 Fourways International Trading. All rights reserved.</p>
+      <a href="owner.html" class="lux-footer__admin" data-i18n="footer_admin">Admin Portal</a>
     </div>
   </div>
 </footer>
@@ -357,34 +291,13 @@
 <script src="js/luxury.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    if (typeof i18n !== 'undefined') i18n.apply(i18n.getCurrentLang());
-  });
-  function openCertModal(src, alt) {
-    var modal = document.getElementById('certModal');
-    var img   = document.getElementById('certModalImg');
-    img.src = src;
-    img.alt = alt || '';
-    modal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeCertModal() {
-    document.getElementById('certModal').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  document.getElementById('certModal').addEventListener('click', function(e) {
-    if (e.target === this) closeCertModal();
-  });
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeCertModal();
-  });
-  // Keyboard support for cert cards
-  document.querySelectorAll('.lux-cert-card').forEach(function(card) {
-    card.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        card.click();
-      }
-    });
+    if (typeof i18n !== 'undefined') {
+      var lang = i18n.getCurrentLang();
+      i18n.apply(lang);
+      // Set correct button label
+      var btn = document.getElementById('langSwitcher');
+      if (btn) btn.textContent = lang === 'fr' ? 'English' : 'Français';
+    }
   });
 </script>
 </body>

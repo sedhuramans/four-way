@@ -272,11 +272,11 @@
       </div>
     </a>
     <ul class="lux-nav__links" id="luxNavLinks" role="menubar">
-      <li role="none"><a href="index.html"    class="lux-nav__link" role="menuitem">Home</a></li>
-      <li role="none"><a href="products.html" class="lux-nav__link active" role="menuitem">Products</a></li>
-      <li role="none"><a href="gallery.html"  class="lux-nav__link" role="menuitem">Gallery</a></li>
-      <li role="none"><a href="about.html"    class="lux-nav__link" role="menuitem">Our Story</a></li>
-      <li role="none"><a href="contact.html"  class="lux-nav__link" role="menuitem">Contact</a></li>
+      <li role="none"><a href="index.html"    class="lux-nav__link" role="menuitem" data-i18n="nav_home">Home</a></li>
+      <li role="none"><a href="products.html" class="lux-nav__link active" role="menuitem" data-i18n="nav_products">Products</a></li>
+      <li role="none"><a href="gallery.html"  class="lux-nav__link" role="menuitem" data-i18n="nav_gallery">Gallery</a></li>
+      <li role="none"><a href="about.html"    class="lux-nav__link" role="menuitem" data-i18n="nav_story">Our Story</a></li>
+      <li role="none"><a href="contact.html"  class="lux-nav__link" role="menuitem" data-i18n="nav_contact">Contact</a></li>
     </ul>
     <div class="lux-nav__actions">
       <button class="lux-nav__lang" id="langSwitcher" onclick="i18n && i18n.toggleLanguage()" type="button" aria-label="Switch language">EN / FR</button>
@@ -310,7 +310,7 @@
     if(hL&&!ovl.querySelector('.lux-nav__lang--mobile')){
       var b=document.createElement('button');
       b.className='lux-nav__lang--mobile';b.type='button';b.setAttribute('aria-label','Switch language');b.textContent=hL.textContent||'EN / FR';
-      b.addEventListener('click',function(){if(typeof i18n!=='undefined'){i18n.toggleLanguage();var lg=i18n.getCurrentLang?i18n.getCurrentLang():'en';var lb=lg==='fr'?'FR / EN':'EN / FR';b.textContent=lb;hL.textContent=lb;}});
+      b.addEventListener('click',function(){if(typeof i18n!=='undefined'){i18n.toggleLanguage();var lg=i18n.getCurrentLang?i18n.getCurrentLang():'en';var lb=lg==='fr'?'English':'Français';b.textContent=lb;hL.textContent=lb;}});
       ovl.appendChild(b);
     }
   });
@@ -327,7 +327,7 @@
         <span class="lux-breadcrumb__sep" aria-hidden="true">›</span>
         <span data-i18n="nav_products">Products</span>
       </nav>
-      <span class="lux-eyebrow">Premium Collection</span>
+      <span class="lux-eyebrow" data-i18n="products_eyebrow">Premium Collection</span>
       <h1 class="lux-heading lux-heading--lg" data-i18n="products_h1">
         Discover Our<br><em>Curated Collection</em>
       </h1>
@@ -339,7 +339,7 @@
 <section class="lux-section" aria-labelledby="products-main-heading">
   <div class="lux-container">
     <div class="text-center lux-reveal" style="margin-bottom:2.5rem;">
-      <span class="lux-eyebrow">Each product is a work of craft</span>
+      <span class="lux-eyebrow" data-i18n="products_craft_eyebrow">Each product is a work of craft</span>
       <h2 class="lux-heading lux-heading--md" id="products-main-heading" data-i18n="products_p">
         Explore our range of sustainable coir and bamboo products.
       </h2>
@@ -389,12 +389,12 @@
         </ul>
       </div>
       <div>
-        <p class="lux-footer__col-title">Products</p>
+        <p class="lux-footer__col-title" data-i18n="home_fp_title">Products</p>
         <ul class="lux-footer__links">
-          <li><a href="products.html?cat=cocopeat" class="lux-footer__link">Cocopeat Blocks</a></li>
-          <li><a href="products.html?cat=growbags" class="lux-footer__link">Grow Bags</a></li>
-          <li><a href="products.html?cat=bamboo"   class="lux-footer__link">Bamboo Products</a></li>
-          <li><a href="products.html?cat=eco"      class="lux-footer__link">Eco Essentials</a></li>
+          <li><a href="products.html?cat=cocopeat" class="lux-footer__link" data-i18n="home_fp_1">Cocopeat Blocks</a></li>
+          <li><a href="products.html?cat=growbags" class="lux-footer__link" data-i18n="home_fp_2">Grow Bags</a></li>
+          <li><a href="products.html?cat=bamboo"   class="lux-footer__link" data-i18n="home_fp_3">Bamboo Products</a></li>
+          <li><a href="products.html?cat=eco"      class="lux-footer__link" data-i18n="home_fp_4">Eco Essentials</a></li>
         </ul>
       </div>
       <div>
@@ -603,7 +603,12 @@
 
   // Load products — direct API call
   document.addEventListener('DOMContentLoaded', function() {
-    if (typeof i18n !== 'undefined') i18n.apply(i18n.getCurrentLang());
+    if (typeof i18n !== 'undefined') {
+      var lang = i18n.getCurrentLang();
+      i18n.apply(lang);
+      var btn = document.getElementById('langSwitcher');
+      if (btn) btn.textContent = lang === 'fr' ? 'English' : 'Français';
+    }
 
     var params   = new URLSearchParams(window.location.search);
     var catParam = params.get('cat');

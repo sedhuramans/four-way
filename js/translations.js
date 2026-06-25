@@ -108,6 +108,8 @@
       /* ── Products page ── */
       products_h1:   'Discover Our<br><em>Curated Collection</em>',
       products_p:    'Explore our range of sustainable coir and bamboo products.',
+      products_eyebrow: 'Premium Collection',
+      products_craft_eyebrow: 'Each product is a work of craft',
       filter_all:    'All',
       filter_coco:   'Cocopeat',
       filter_bamboo: 'Bamboo',
@@ -122,6 +124,12 @@
 
       /* ── About page ── */
       about_bc:       'About Us',
+      about_hero_eyebrow: 'Heritage & Vision',
+      about_hero_h1:  'Heritage, Passion,<br><em>and French Craftsmanship</em>',
+      about_identity_eyebrow: 'Our Identity',
+      about_values_eyebrow: 'Our Values',
+      about_btn_products: 'Explore Products',
+      about_btn_quote: 'Get a Quote',
       about_who_h1:   'Who We Are',
       about_who_p1:   'We are a forward-thinking company committed to delivering high-quality products and exceptional service to customers worldwide. With a strong foundation built on innovation, reliability, and sustainability, we aim to create solutions that not only meet today\'s needs but also shape a better tomorrow.',
       about_who_p2:   'Our team consists of passionate professionals who bring expertise, creativity, and dedication to every project. We believe in long-term relationships, transparency, and continuous improvement, ensuring that every client experiences trust and value in every interaction.',
@@ -234,7 +242,7 @@
       home_fp_1:          'Cocopeat Blocks',
       home_fp_2:          'Grow Bags',
       home_fp_3:          'Bamboo Products',
-      home_fp_4:          'Gallery',
+      home_fp_4:          'Eco Essentials',
       bc_gallery:  'Gallery',
       bc_products: 'Products',
       bc_about:    'About Us',
@@ -346,6 +354,8 @@
       /* ── Products page ── */
       products_h1:   'Découvrez Notre<br><em>Collection Sélectionnée</em>',
       products_p:    'Explorez notre gamme de produits durables en coco et bambou.',
+      products_eyebrow: 'Collection Premium',
+      products_craft_eyebrow: 'Chaque produit est une œuvre d\'artisanat',
       filter_all:    'Tous',
       filter_coco:   'Fibre de Coco',
       filter_bamboo: 'Bambou',
@@ -360,6 +370,12 @@
 
       /* ── About page ── */
       about_bc:       'À Propos',
+      about_hero_eyebrow: 'Héritage & Vision',
+      about_hero_h1:  'Héritage, Passion,<br><em>et Artisanat Français</em>',
+      about_identity_eyebrow: 'Notre Identité',
+      about_values_eyebrow: 'Nos Valeurs',
+      about_btn_products: 'Explorer les Produits',
+      about_btn_quote: 'Obtenir un Devis',
       about_who_h1:   'Qui Sommes-Nous',
       about_who_p1:   'Nous sommes une entreprise innovante engagée à fournir des produits de haute qualité et un service exceptionnel à nos clients du monde entier. Avec une base solide construite sur l\'innovation, la fiabilité et la durabilité, nous créons des solutions qui répondent aux besoins actuels et façonnent un avenir meilleur.',
       about_who_p2:   'Notre équipe est composée de professionnels passionnés apportant expertise, créativité et dévouement à chaque projet. Nous croyons aux relations à long terme, à la transparence et à l\'amélioration continue, garantissant que chaque client ressent confiance et valeur dans chaque interaction.',
@@ -480,7 +496,7 @@
       home_fp_1:          'Blocs de Cocopeat',
       home_fp_2:          'Sacs de Culture',
       home_fp_3:          'Produits en Bambou',
-      home_fp_4:          'Galerie',
+      home_fp_4:          'Éco Essentiels',
     }
   };
 

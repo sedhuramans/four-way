@@ -246,20 +246,7 @@
         <p class="lux-lead" data-i18n="home_about_p">
           Born from the coconut farms of Tamil Nadu and guided by French precision, Fourways International Trading brings the finest organic products to discerning clients worldwide. We believe luxury and sustainability are not opposites — they are complementary.
         </p>
-        <div class="lux-about__stats" style="margin-top:2rem;">
-          <div>
-            <span class="lux-stat__num">5000+</span>
-            <span class="lux-stat__label" data-i18n="home_about_stat1">Happy Clients</span>
-          </div>
-          <div>
-            <span class="lux-stat__num">20+</span>
-            <span class="lux-stat__label" data-i18n="home_about_stat2">Products</span>
-          </div>
-          <div>
-            <span class="lux-stat__num">15+</span>
-            <span class="lux-stat__label" data-i18n="home_about_stat3">Countries</span>
-          </div>
-        </div>
+
         <div class="lux-btn-group" style="margin-top:2.5rem;">
           <a href="about.html"   class="lux-btn lux-btn--primary"><span data-i18n="home_about_btn1">Our Story</span></a>
           <a href="contact.html" class="lux-btn lux-btn--ghost"><span data-i18n="home_about_btn2">Get in Touch</span></a>
@@ -470,7 +457,12 @@
 
   /* ── i18n ─────────────────────────────────────────── */
   function initI18n() {
-    if (typeof i18n !== 'undefined') i18n.apply(i18n.getCurrentLang());
+    if (typeof i18n !== 'undefined') {
+      var lang = i18n.getCurrentLang();
+      i18n.apply(lang);
+      var btn = document.getElementById('langSwitcher');
+      if (btn) btn.textContent = lang === 'fr' ? 'English' : 'Français';
+    }
   }
 
   /* Boot everything on DOMContentLoaded */
