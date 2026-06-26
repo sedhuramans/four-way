@@ -61,6 +61,7 @@
   var nav=document.getElementById('luxNav');
   var hbg=document.getElementById('luxHamburger');
   var ovl=document.getElementById('luxNavLinks');
+  var actions=document.querySelector('.lux-nav__actions');
   if(!hbg||!ovl)return;
   var open=false;
   function setBg(){
@@ -74,6 +75,35 @@
   ovl.querySelectorAll('.lux-nav__link').forEach(function(l){l.addEventListener('click',closeNav);});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&open){closeNav();hbg.focus();}});
   ovl.addEventListener('click',function(e){if(e.target===ovl)closeNav();});
+  // Inject visible lang toggle pill in mobile nav bar (before hamburger)
+  document.addEventListener('DOMContentLoaded',function(){
+    function getLangLabel(){var lg=typeof i18n!=='undefined'?i18n.getCurrentLang():'en';return lg==='fr'?'🇬🇧 EN':'🇫🇷 FR';}
+    function updateAllBtns(lg){
+      var lbl=lg==='fr'?'🇬🇧 EN':'🇫🇷 FR';
+      document.querySelectorAll('.lux-nav__lang,.lux-nav__lang--mobile-bar,.lux-nav__lang--mobile').forEach(function(b){b.textContent=lbl;});
+    }
+    // Pill in action bar (mobile only via CSS)
+    if(actions&&!actions.querySelector('.lux-nav__lang--mobile-bar')){
+      var pill=document.createElement('button');
+      pill.className='lux-nav__lang--mobile-bar';
+      pill.type='button';
+      pill.setAttribute('aria-label','Switch language');
+      pill.textContent=getLangLabel();
+      pill.addEventListener('click',function(){if(typeof i18n!=='undefined'){i18n.toggleLanguage();updateAllBtns(i18n.getCurrentLang());}});
+      actions.insertBefore(pill,hbg);
+    }
+    // Also inject inside overlay for completeness
+    var hL=document.getElementById('langSwitcher');
+    if(hL&&!ovl.querySelector('.lux-nav__lang--mobile')){
+      var b=document.createElement('button');
+      b.className='lux-nav__lang--mobile';b.type='button';b.setAttribute('aria-label','Switch language');
+      b.textContent=getLangLabel();
+      b.addEventListener('click',function(){if(typeof i18n!=='undefined'){i18n.toggleLanguage();updateAllBtns(i18n.getCurrentLang());}});
+      ovl.appendChild(b);
+    }
+    // Set desktop button label too
+    if(hL){hL.textContent=getLangLabel();}
+  });
 })();
 </script>
 

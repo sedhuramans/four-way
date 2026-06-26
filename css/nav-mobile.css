@@ -193,8 +193,38 @@
   /* Show hamburger */
   .lux-nav__hamburger { display: flex; }
 
-  /* Hide desktop lang button */
+  /* Hide desktop lang button — replaced by visible mobile toggle */
   .lux-nav__actions .lux-nav__lang { display: none; }
+
+  /* ── Visible lang toggle pill in nav bar (mobile) ─── */
+  .lux-nav__lang--mobile-bar {
+    display: flex !important;
+    align-items: center;
+    font-family: var(--font-sans);
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--lux-ivory);
+    background: rgba(212,180,127,0.15);
+    border: 1px solid rgba(212,180,127,0.5);
+    border-radius: 20px;
+    padding: 0.32rem 0.8rem;
+    cursor: pointer;
+    gap: 0.3rem;
+    white-space: nowrap;
+    transition: background 0.25s ease, border-color 0.25s ease;
+    flex-shrink: 0;
+  }
+  .lux-nav__lang--mobile-bar:hover,
+  .lux-nav__lang--mobile-bar:active {
+    background: rgba(212,180,127,0.3);
+    border-color: var(--lux-champagne);
+    color: var(--lux-champagne-lt);
+  }
+  .lux-nav__lang--mobile-bar .lang-icon {
+    font-size: 0.7rem;
+  }
 
   /* ── FULL-SCREEN OVERLAY ─────────────────────────── */
   .lux-nav__links {
