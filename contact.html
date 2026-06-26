@@ -267,8 +267,8 @@
     if (typeof i18n !== 'undefined') {
       var lang = i18n.getCurrentLang();
       i18n.apply(lang);
-      var btn = document.getElementById('langSwitcher');
-      if (btn) btn.textContent = lang === 'fr' ? 'English' : 'Français';
+      var lbl = lang === 'fr' ? '🇬🇧 EN' : '🇫🇷 FR';
+      document.querySelectorAll('#langSwitcher, .lux-nav__lang').forEach(function(b){ b.textContent = lbl; });
     }
     // Pre-select from URL params
     var params = new URLSearchParams(window.location.search);

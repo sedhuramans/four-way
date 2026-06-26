@@ -121,21 +121,27 @@
   flex-shrink: 0;
 }
 .lux-nav__lang {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
   font-family: var(--font-sans);
   font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(248,246,240,0.6);
-  border: 1px solid rgba(248,246,240,0.2);
-  padding: 0.3rem 0.75rem;
-  transition: all 0.28s ease;
-  background: none;
+  color: var(--lux-ivory);
+  background: rgba(212,180,127,0.15);
+  border: 1px solid rgba(212,180,127,0.5);
+  border-radius: 20px;
+  padding: 0.35rem 0.9rem;
   cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
 }
 .lux-nav__lang:hover {
-  color: var(--lux-champagne-lt);
+  background: rgba(212,180,127,0.3);
   border-color: var(--lux-champagne);
+  color: var(--lux-champagne-lt);
 }
 
 /* ── Hamburger: hidden on desktop ────────────────────────── */
@@ -225,7 +231,6 @@
   .lux-nav__lang--mobile-bar .lang-icon {
     font-size: 0.7rem;
   }
-
   /* ── FULL-SCREEN OVERLAY ─────────────────────────── */
   .lux-nav__links {
     /* Reset desktop flex */
