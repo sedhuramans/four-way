@@ -1768,18 +1768,24 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 @media (max-width: 768px) {
   .lux-carousel { min-height: 100svh; overflow: hidden; }
 
-  /* Tighter horizontal padding so content stays in viewport */
+  /* More horizontal padding so text clears the arrows */
   .lux-carousel__content {
-    padding: var(--nav-h) 1.2rem 1.2rem;
+    padding: calc(var(--nav-h) + 1rem) 3.8rem 2rem;
     overflow: hidden;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .lux-carousel__title {
     font-size: clamp(1.75rem, 8vw, 2.8rem);
-    line-height: 1.1;
+    line-height: 1.2;
     word-break: break-word;
     overflow-wrap: break-word;
     max-width: 100%;
+    margin-bottom: 1rem;
   }
   /* Hide forced line breaks — let the browser reflow naturally */
   .lux-carousel__title br { display: none; }
@@ -1787,19 +1793,23 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .lux-carousel__eyebrow {
     font-size: 0.6rem;
     letter-spacing: 0.2em;
-    margin-bottom: 0.9rem;
+    margin-bottom: 1rem;
   }
 
   .lux-carousel__sub {
     font-size: 0.88rem;
-    margin-bottom: 1.6rem;
+    line-height: 1.65;
+    margin-bottom: 1.8rem;
     max-width: 100%;
   }
+  /* Hide forced breaks in sub text too */
+  .lux-carousel__sub br { display: none; }
 
   .lux-carousel__cta {
     flex-direction: column;
     align-items: center;
     gap: 0.7rem;
+    width: 100%;
   }
   .lux-carousel__cta .lux-btn {
     width: 100%;
@@ -1809,14 +1819,17 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     font-size: 0.65rem;
   }
 
-  /* Smaller arrows */
+  /* Arrows — sit at the very edge, not overlapping text */
   .lux-carousel__arrow {
-    width: 38px; height: 38px;
-    background: rgba(13,13,13,0.55);
+    width: 36px; height: 36px;
+    background: rgba(13,13,13,0.6);
+    top: auto;
+    bottom: 30%;
+    transform: none;
   }
-  .lux-carousel__arrow svg    { width: 15px; height: 15px; }
-  .lux-carousel__arrow--prev  { left: 0.6rem; }
-  .lux-carousel__arrow--next  { right: 0.6rem; }
+  .lux-carousel__arrow svg    { width: 14px; height: 14px; }
+  .lux-carousel__arrow--prev  { left: 0.5rem; }
+  .lux-carousel__arrow--next  { right: 0.5rem; }
 
   .lux-carousel__dots   { bottom: 3rem; }
   .lux-carousel__scroll { display: none; }
@@ -1827,5 +1840,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 @media (max-width: 380px) {
   .lux-carousel__eyebrow  { font-size: 0.55rem; letter-spacing: 0.14em; }
   .lux-carousel__title    { font-size: clamp(1.55rem, 7.5vw, 2.2rem); }
+  .lux-carousel__content  { padding: calc(var(--nav-h) + 0.5rem) 3.2rem 1.5rem; }
   .lux-carousel__arrow    { display: none; }
 }
