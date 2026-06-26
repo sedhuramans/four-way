@@ -107,7 +107,7 @@
       contact_alert:     'Thank you for your inquiry! Your email client will open with the message pre-filled. Please send it to complete your inquiry.',
 
       /* ── Products page ── */
-      products_h1:   'Discover Our<br><em>Curated Collection</em>',
+      products_h1:   'Discover Our<br> <em>Curated Collection</em>',
       products_p:    'Explore our range of sustainable coir and bamboo products.',
       products_eyebrow: 'Premium Collection',
       products_craft_eyebrow: 'Each product is a work of craft',
@@ -126,7 +126,7 @@
       /* ── About page ── */
       about_bc:       'About Us',
       about_hero_eyebrow: 'Heritage & Vision',
-      about_hero_h1:  'Heritage, Passion,<br><em>and French Craftsmanship</em>',
+      about_hero_h1:  'Heritage, Passion,<br> <em>and French Craftsmanship</em>',
       about_identity_eyebrow: 'Our Identity',
       about_values_eyebrow: 'Our Values',
       about_btn_products: 'Explore Products',
@@ -152,31 +152,31 @@
 
       /* ── Home — Carousel slides ── */
       home_slide1_eyebrow: 'Premium Cocopeat Solutions',
-      home_slide1_title:   'The Art of<br><em>Sustainable Luxury</em>',
+      home_slide1_title:   'The Art of<br> <em>Sustainable Luxury</em>',
       home_slide1_sub:     'Export-grade cocopeat crafted from the heart of Tamil Nadu, delivered with French precision and ecological responsibility.',
       home_slide1_btn1:    'Explore Cocopeat',
       home_slide1_btn2:    'Request Quote',
 
       home_slide2_eyebrow: 'Sustainable Bamboo Products',
-      home_slide2_title:   'Rooted in<br><em>French Elegance</em>',
+      home_slide2_title:   'Rooted in<br> <em>French Elegance</em>',
       home_slide2_sub:     'Eco-friendly bamboo alternatives crafted for a plastic-free future — timeless, sustainable, and beautifully presented.',
       home_slide2_btn1:    'Discover Bamboo',
       home_slide2_btn2:    'Our Heritage',
 
       home_slide3_eyebrow: '100% Organic & Natural',
-      home_slide3_title:   'Nature Is<br><em>The Highest Luxury</em>',
+      home_slide3_title:   'Nature Is<br> <em>The Highest Luxury</em>',
       home_slide3_sub:     'Nurturing the planet with biodegradable solutions. Every product honours the earth, trusted by 5000+ clients in 15+ countries.',
       home_slide3_btn1:    'View Gallery',
       home_slide3_btn2:    'Shop Collection',
 
       home_slide4_eyebrow: 'Pure Coir Heritage',
-      home_slide4_title:   'Crafted from<br><em>Earth\'s Finest Fibre</em>',
+      home_slide4_title:   'Crafted from<br> <em>Earth\'s Finest Fibre</em>',
       home_slide4_sub:     'From the golden husk of coconut to premium grow media — our coir products redefine what sustainable agriculture looks like.',
       home_slide4_btn1:    'See All Products',
       home_slide4_btn2:    'Our Story',
 
       home_slide5_eyebrow: 'Eco-Conscious Excellence',
-      home_slide5_title:   'Growing a<br><em>Greener Tomorrow</em>',
+      home_slide5_title:   'Growing a<br> <em>Greener Tomorrow</em>',
       home_slide5_sub:     'ISO-certified, zero-waste, globally trusted. We bring the richness of Indian nature to the world — one sustainable product at a time.',
       home_slide5_btn1:    'Get in Touch',
       home_slide5_btn2:    'Browse Collection',
@@ -193,7 +193,7 @@
 
       /* ── Home — Collection section ── */
       home_col_eyebrow:  'Premium Selection',
-      home_col_title:    'Curated<br><em>Collection</em>',
+      home_col_title:    'Curated<br> <em>Collection</em>',
       home_col_sub:      'Each product is a testament to our commitment — where organic purity meets French refinement.',
       home_col_cat1:     'Cocopeat',
       home_col_name1:    'Premium Cocopeat Blocks',
@@ -208,7 +208,7 @@
 
       /* ── Home — About teaser ── */
       home_about_eyebrow: 'Our Heritage',
-      home_about_title:   'French Precision,<br><em>Nature\'s Purity</em>',
+      home_about_title:   'French Precision,<br> <em>Nature\'s Purity</em>',
       home_about_p:       'Born from the coconut farms of Tamil Nadu and guided by French precision, Fourways International Trading brings the finest organic products to discerning clients worldwide. We believe luxury and sustainability are not opposites — they are complementary.',
       home_about_stat1:   'Happy Clients',
       home_about_stat2:   'Products',
@@ -219,7 +219,7 @@
 
       /* ── Home — Sustainability ── */
       home_sust_eyebrow:  'The Art of Sustainability',
-      home_sust_title:    'Crafted with Conscience,<br><em>Designed for the Future</em>',
+      home_sust_title:    'Crafted with Conscience,<br> <em>Designed for the Future</em>',
       home_sust1_title:   'Purely Organic',
       home_sust1_text:    'Sourced from the heart of nature, untouched by synthetics. Every product carries the purity of its origin.',
       home_sust2_title:   'Zero Waste',
@@ -229,11 +229,11 @@
 
       /* ── Home — Testimonials ── */
       home_test_eyebrow:  'Client Voices',
-      home_test_title:    'Trusted by<br><em>Discerning Clients</em>',
+      home_test_title:    'Trusted by<br> <em>Discerning Clients</em>',
 
       /* ── Home — CTA Banner ── */
       home_cta_eyebrow:   'Begin Your Journey',
-      home_cta_title:     'Ready to Experience<br><em>Premium Craftsmanship?</em>',
+      home_cta_title:     'Ready to Experience<br> <em>Premium Craftsmanship?</em>',
       home_cta_p:         'Explore our curated collection or speak directly with our team for custom bulk orders and export inquiries.',
       home_cta_btn1:      'Browse Products',
       home_cta_btn2:      'Contact Us',
@@ -354,7 +354,7 @@
       contact_alert:     'Merci pour votre demande ! Votre client de messagerie s\'ouvrira avec le message pré-rempli. Veuillez l\'envoyer pour compléter votre demande.',
 
       /* ── Products page ── */
-      products_h1:   'Découvrez Notre<br><em>Collection Sélectionnée</em>',
+      products_h1:   'Découvrez Notre<br> <em>Collection Sélectionnée</em>',
       products_p:    'Explorez notre gamme de produits durables en coco et bambou.',
       products_eyebrow: 'Collection Premium',
       products_craft_eyebrow: 'Chaque produit est une œuvre d\'artisanat',
@@ -373,7 +373,7 @@
       /* ── About page ── */
       about_bc:       'À Propos',
       about_hero_eyebrow: 'Héritage & Vision',
-      about_hero_h1:  'Héritage, Passion,<br><em>et Artisanat Français</em>',
+      about_hero_h1:  'Héritage, Passion,<br> <em>et Artisanat Français</em>',
       about_identity_eyebrow: 'Notre Identité',
       about_values_eyebrow: 'Nos Valeurs',
       about_btn_products: 'Explorer les Produits',
@@ -407,31 +407,31 @@
 
       /* ── Home — Carousel slides ── */
       home_slide1_eyebrow: 'Solutions Cocopeat Premium',
-      home_slide1_title:   'L\'Art du<br><em>Luxe Durable</em>',
+      home_slide1_title:   'L\'Art du<br> <em>Luxe Durable</em>',
       home_slide1_sub:     'Cocopeat de qualité export du cœur du Tamil Nadu, livré avec précision française et responsabilité écologique.',
       home_slide1_btn1:    'Explorer le Cocopeat',
       home_slide1_btn2:    'Demander un Devis',
 
       home_slide2_eyebrow: 'Produits en Bambou Durables',
-      home_slide2_title:   'Ancré dans<br><em>l\'Élégance Française</em>',
+      home_slide2_title:   'Ancré dans<br> <em>l\'Élégance Française</em>',
       home_slide2_sub:     'Alternatives écologiques en bambou conçues pour un avenir sans plastique — intemporelles, durables et magnifiquement présentées.',
       home_slide2_btn1:    'Découvrir le Bambou',
       home_slide2_btn2:    'Notre Héritage',
 
       home_slide3_eyebrow: '100% Biologique & Naturel',
-      home_slide3_title:   'La Nature Est<br><em>Le Plus Grand Luxe</em>',
+      home_slide3_title:   'La Nature Est<br> <em>Le Plus Grand Luxe</em>',
       home_slide3_sub:     'Nourrir la planète avec des solutions biodégradables. Chaque produit honore la terre, approuvé par 5000+ clients dans 15+ pays.',
       home_slide3_btn1:    'Voir la Galerie',
       home_slide3_btn2:    'Acheter la Collection',
 
       home_slide4_eyebrow: 'Héritage de la Fibre de Coco',
-      home_slide4_title:   'Fabriqué à partir de<br><em>la Plus Fine Fibre de la Terre</em>',
+      home_slide4_title:   'Fabriqué à partir de<br> <em>la Plus Fine Fibre de la Terre</em>',
       home_slide4_sub:     'De l\'enveloppe dorée de la noix de coco aux meilleurs substrats de culture — nos produits coir redéfinissent l\'agriculture durable.',
       home_slide4_btn1:    'Voir Tous les Produits',
       home_slide4_btn2:    'Notre Histoire',
 
       home_slide5_eyebrow: 'Excellence Écologique',
-      home_slide5_title:   'Construire un<br><em>Avenir Plus Vert</em>',
+      home_slide5_title:   'Construire un<br> <em>Avenir Plus Vert</em>',
       home_slide5_sub:     'Certifié ISO, zéro déchet, mondialement approuvé. Nous apportons la richesse de la nature indienne au monde — un produit durable à la fois.',
       home_slide5_btn1:    'Nous Contacter',
       home_slide5_btn2:    'Parcourir la Collection',
@@ -448,7 +448,7 @@
 
       /* ── Home — Collection section ── */
       home_col_eyebrow:  'Sélection Premium',
-      home_col_title:    'Collection<br><em>Sélectionnée</em>',
+      home_col_title:    'Collection<br> <em>Sélectionnée</em>',
       home_col_sub:      'Chaque produit témoigne de notre engagement — où la pureté organique rencontre le raffinement français.',
       home_col_cat1:     'Cocopeat',
       home_col_name1:    'Blocs de Cocopeat Premium',
@@ -463,7 +463,7 @@
 
       /* ── Home — About teaser ── */
       home_about_eyebrow: 'Notre Héritage',
-      home_about_title:   'Précision Française,<br><em>Pureté de la Nature</em>',
+      home_about_title:   'Précision Française,<br> <em>Pureté de la Nature</em>',
       home_about_p:       'Née des fermes de noix de coco du Tamil Nadu et guidée par la précision française, Fourways International Trading apporte les meilleurs produits biologiques à des clients exigeants du monde entier. Nous croyons que luxe et durabilité ne sont pas des opposés — ils sont complémentaires.',
       home_about_stat1:   'Clients Satisfaits',
       home_about_stat2:   'Produits',
@@ -474,7 +474,7 @@
 
       /* ── Home — Sustainability ── */
       home_sust_eyebrow:  'L\'Art de la Durabilité',
-      home_sust_title:    'Fabriqué avec Conscience,<br><em>Conçu pour l\'Avenir</em>',
+      home_sust_title:    'Fabriqué avec Conscience,<br> <em>Conçu pour l\'Avenir</em>',
       home_sust1_title:   'Purement Biologique',
       home_sust1_text:    'Issu du cœur de la nature, sans synthétiques. Chaque produit porte la pureté de son origine.',
       home_sust2_title:   'Zéro Déchet',
@@ -484,11 +484,11 @@
 
       /* ── Home — Testimonials ── */
       home_test_eyebrow:  'Témoignages Clients',
-      home_test_title:    'Approuvé par<br><em>des Clients Exigeants</em>',
+      home_test_title:    'Approuvé par<br> <em>des Clients Exigeants</em>',
 
       /* ── Home — CTA Banner ── */
       home_cta_eyebrow:   'Commencez Votre Voyage',
-      home_cta_title:     'Prêt à Vivre<br><em>l\'Artisanat Premium ?</em>',
+      home_cta_title:     'Prêt à Vivre<br> <em>l\'Artisanat Premium ?</em>',
       home_cta_p:         'Explorez notre collection sélectionnée ou parlez directement à notre équipe pour des commandes en gros personnalisées et des demandes d\'exportation.',
       home_cta_btn1:      'Parcourir les Produits',
       home_cta_btn2:      'Nous Contacter',
