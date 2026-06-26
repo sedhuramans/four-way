@@ -1210,12 +1210,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .lux-loader__tagline {
   font-family: var(--font-sans);
-  font-size: 0.58rem;
-  font-weight: 500;
-  letter-spacing: 0.28em;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.35em;
   text-transform: uppercase;
   color: var(--lux-champagne);
   margin-bottom: 2rem;
+  opacity: 0.9;
 }
 .lux-loader__line {
   width: 160px; height: 1px;
@@ -1236,13 +1237,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .lux-nav__logo-slogan {
   display: block;
   font-family: var(--font-sans);
-  font-size: 0.5rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
+  font-size: 0.48rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--lux-champagne);
-  margin-top: 1px;
+  margin-top: 2px;
   white-space: nowrap;
+  opacity: 0.9;
 }
 
 /* ── Breadcrumb ───────────────────────────────────────────── */
